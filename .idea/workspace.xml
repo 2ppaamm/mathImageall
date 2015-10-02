@@ -24,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/tracks/show.blade.php">
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/difficulties/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.11956522">
-              <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.8804348">
+              <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -46,10 +46,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/tracks.php" />
-        <option value="$PROJECT_DIR$/database/seeds/TracksSeeder.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/_master.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/math.css" />
         <option value="$PROJECT_DIR$/database/seeds/DifficultySeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/LevelsSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/_questionform.php" />
@@ -95,8 +91,12 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/questions/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/tracks/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/TrackController.php" />
         <option value="$PROJECT_DIR$/resources/views/tracks/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/TrackController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/LevelController.php" />
+        <option value="$PROJECT_DIR$/resources/views/levels/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DifficultyController.php" />
+        <option value="$PROJECT_DIR$/resources/views/difficulties/index.blade.php" />
       </list>
     </option>
   </component>
@@ -202,6 +202,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tracks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="maths" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="maths" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="levels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="maths" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="maths" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="difficulties" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -333,7 +377,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -381,95 +425,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/services.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7866379">
-          <caret line="37" column="2" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/TracksSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64893615">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/math.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19102749">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DifficultySeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7612156">
-          <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TrackLevelQuestionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79310346">
-          <caret line="28" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <marker date="1443634848568" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder=" Display a listing of the resource. ..." />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder=" Show the form for creating a new resource. ..." />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder=" Store a newly created resource in storage. ..." />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder=" Display the specified resource. ..." />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder=" Show the form for editing the specified resource. ..." />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder=" Update the specified resource in storage. ..." />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder=" Remove the specified resource from storage. ..." />
-            <marker date="1443634848568" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserTrackController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79310346">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <marker date="1443732798116" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder=" Display a listing of the resource. ..." />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder=" Show the form for creating a new resource. ..." />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder=" Store a newly created resource in storage. ..." />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder=" Display the specified resource. ..." />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder=" Show the form for editing the specified resource. ..." />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder=" Update the specified resource in storage. ..." />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder=" Remove the specified resource from storage. ..." />
-            <marker date="1443732798116" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/questions/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6102362">
@@ -681,19 +636,6 @@
             <marker date="1443742863118" expanded="true" signature="-1:-1" placeholder="..." />
             <marker date="1443742863118" expanded="true" signature="-1:-1" placeholder="..." />
             <marker date="1443742863118" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Level.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7421875">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <marker date="1443743014091" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443743014091" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1443743014091" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1443743014091" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1162,32 +1104,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuestionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2228261">
-          <caret line="26" column="74" selection-start-line="26" selection-start-column="74" selection-end-line="26" selection-end-column="74" />
-          <folding>
-            <marker date="1443757289434" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Display a listing of the resource. ..." />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Show the form for creating a new resource. ..." />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Store a newly created resource in storage. ..." />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Display the specified resource. ..." />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Show the form for editing the specified resource. ..." />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Update the specified resource in storage. ..." />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Remove the specified resource from storage. ..." />
-            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/_nav.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5217391">
@@ -1260,35 +1176,182 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TrackController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5996377">
-          <caret line="60" column="52" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
-          <folding>
-            <marker date="1443758488069" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder=" Display a listing of the resource. ..." />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder=" Show the form for creating a new resource. ..." />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder=" Store a newly created resource in storage. ..." />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder=" Display the specified resource. ..." />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder=" Show the form for editing the specified resource. ..." />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder=" Update the specified resource in storage. ..." />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder=" Remove the specified resource from storage. ..." />
-            <marker date="1443758488069" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/tracks/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11956522">
           <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+          <folding>
+            <marker date="1443758512869" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8967391">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TrackController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76086956">
+          <caret line="23" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <marker date="1443768446589" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder=" Display a listing of the resource. ..." />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder=" Show the form for creating a new resource. ..." />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder=" Store a newly created resource in storage. ..." />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder=" Display the specified resource. ..." />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder=" Show the form for editing the specified resource. ..." />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder=" Update the specified resource in storage. ..." />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder=" Remove the specified resource from storage. ..." />
+            <marker date="1443768446589" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/levels/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1443738590882" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443738590882" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443738590882" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Level.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding>
+            <marker date="1443743014091" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443743014091" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443743014091" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443743014091" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/levels/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32971016">
+          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+          <folding>
+            <marker date="1443768966662" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443768966662" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443768966662" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443768966662" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443768966662" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443768966662" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443768966662" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LevelController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8804348">
+          <caret line="23" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <marker date="1443768839189" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder=" Display a listing of the resource. ..." />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder=" Show the form for creating a new resource. ..." />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder=" Store a newly created resource in storage. ..." />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder=" Display the specified resource. ..." />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder=" Show the form for editing the specified resource. ..." />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder=" Update the specified resource in storage. ..." />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder=" Remove the specified resource from storage. ..." />
+            <marker date="1443768839189" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuestionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2228261">
+          <caret line="26" column="74" selection-start-line="26" selection-start-column="74" selection-end-line="26" selection-end-column="74" />
+          <folding>
+            <marker date="1443757289434" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Display a listing of the resource. ..." />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Show the form for creating a new resource. ..." />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Store a newly created resource in storage. ..." />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Display the specified resource. ..." />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Show the form for editing the specified resource. ..." />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Update the specified resource in storage. ..." />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder=" Remove the specified resource from storage. ..." />
+            <marker date="1443757289434" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/difficulties/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1443738590882" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443738590882" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443738590882" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DifficultyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47826087">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder=" Display a listing of the resource. ..." />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder=" Show the form for creating a new resource. ..." />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder=" Store a newly created resource in storage. ..." />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder=" Display the specified resource. ..." />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder=" Show the form for editing the specified resource. ..." />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder=" Update the specified resource in storage. ..." />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder=" Remove the specified resource from storage. ..." />
+            <marker date="1443769256631" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/difficulties/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8804348">
+          <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
           <folding />
         </state>
       </provider>

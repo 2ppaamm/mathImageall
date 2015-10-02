@@ -20,8 +20,6 @@ class TrackController extends Controller
         $flash_message = isset($tracks) ? 'Listing all the tracks available on the system' :
             'Error in retrieving tracks';
         session()->flash('flash_message', $flash_message);
- //       return $tracks;
- //       return $flash_message;
         return view('tracks.index', compact ('tracks'));
     }
 

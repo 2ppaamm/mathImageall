@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Levels;
+use App\Level;
 
 class LevelController extends Controller
 {
@@ -16,10 +16,11 @@ class LevelController extends Controller
      */
     public function index()
     {
-        $levels=Levels::all();
-        session()->flash('flash_message', 'Listing all the levels available on the system');
-        return $levels;
-        return view('levels.index')->with($levels);
+        $levels = Level::all();
+        $flash_message = isset($tracks) ? 'Listing all the tracks available on the system' :
+            'Error in retrieving tracks';
+        session()->flash('flash_message', $flash_message);
+        return view('levels.index', compact ('levels'));
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Difficulty;
 
 class DifficultyController extends Controller
 {
@@ -15,7 +16,11 @@ class DifficultyController extends Controller
      */
     public function index()
     {
-        //
+        $difficulties = Difficulty::all();
+        $flash_message = isset($tracks) ? 'Listing all the difficulties available on the system' :
+            'Error in retrieving difficulties';
+        session()->flash('flash_message', $flash_message);
+        return view('difficulties.index', compact ('difficulties'));
     }
 
     /**
