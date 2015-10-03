@@ -17,7 +17,7 @@ class DifficultyController extends Controller
     public function index()
     {
         $difficulties = Difficulty::all();
-        $flash_message = isset($tracks) ? 'Listing all the difficulties available on the system' :
+        $flash_message = isset($difficulties) ? 'Listing all the difficulties available on the system' :
             'Error in retrieving difficulties';
         session()->flash('flash_message', $flash_message);
         return view('difficulties.index', compact ('difficulties'));

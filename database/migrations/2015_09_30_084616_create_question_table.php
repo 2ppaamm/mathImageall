@@ -13,7 +13,7 @@ class CreateQuestionTable extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id',36)->primary();
             $table->integer('track_id')->unsigned();
             $table->foreign('track_id')->references('id')->on('tracks');
             $table->integer('level_id')->unsigned();
@@ -31,6 +31,7 @@ class CreateQuestionTable extends Migration
             $table->string('correct_answer');
             $table->boolean('is_private')->default(FALSE);
             $table->boolean('is_hidden')->default(FALSE);
+            $table->string('source')->nullable();
             $table->timestamps();
         });
     }

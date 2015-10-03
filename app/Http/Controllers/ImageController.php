@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Level;
 
-class LevelController extends Controller
+class ImageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +15,7 @@ class LevelController extends Controller
      */
     public function index()
     {
-        $levels = Level::all();
-        $flash_message = isset($levels) ? 'Listing all the tracks available on the system' :
-            'Error in retrieving tracks';
-        session()->flash('flash_message', $flash_message);
-        return view('levels.index', compact ('levels'));
+        //
     }
 
     /**
@@ -30,7 +25,7 @@ class LevelController extends Controller
      */
     public function create()
     {
-        //
+        return 'create';
     }
 
     /**

@@ -12,7 +12,7 @@
               <p>
                    <a href="{{ url('/difficulties', ($difficulty->id)) }}">
                        <h3>
-                           Objective {{ $difficulty->difficulty  }} {{$difficulty->short_description}}
+                           Objective {{$difficulty->short_description}}
                        </h3>
                        <span>{{ $difficulty->description }}</span>
                   {{ $difficulty->description}}

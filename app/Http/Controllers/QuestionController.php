@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Difficulty;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Question;
-use App\Track;
-use App\Level;
 use App\Http\Requests\QuestionRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
+use Webpatser\Uuid\Uuid;
+use Intervention\Image;
 
 class QuestionController extends Controller
 {
@@ -25,9 +26,9 @@ class QuestionController extends Controller
     public function index()
     {
         $questions=Question::latest()->with('track')->with('difficulty')->get();
-        $flash_message = isset($questions) ? 'Listing all the questions available on the system' :
-            'Error in retrieving questions';
-        session()->flash('flash_message', $flash_message);
+
+        flash(isset($questions) ? 'Listing all the questions available on the system' :
+            'Error in retrieving questions');
         return view('questions.index', compact('questions'));
     }
 
@@ -38,27 +39,24 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $tracks = Track::lists('track','id');
-        $levels = Level::lists('description', 'id');
-        $difficulties = Difficulty::lists('short_description','id');
-        return view('questions.create', compact('tracks','levels','difficulties'));
+        return view('questions.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  QuestionRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(QuestionRequest $request)
     {
-//        return $request;
         $question = new Question($request->all());
-        $question['difficulty_id']=$request->difficulty_id;
+        $uuid = Uuid::generate(4);                      // generate a unique number of question id
+        $question['id'] = $uuid;
+        $question['image'] = (isset($request->files) ? $question['image']=$this->storeImage($request, $uuid):null);
         Auth::user()->questions()->save($question);
-        session()->flash('flash_message', 'Question created');
-
-        return redirect('questions');
+        flash('flash_message', 'Question created');
+        return redirect('questions/'.$uuid);
     }
 
     /**
@@ -69,9 +67,9 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-        $flash_message = is_null($question) ? 'Question fetched' :
-            'Error in retrieving question, error 404';
-        return view('questions.show', compact('question'));
+       flash(is_null($question) ? 'Error in retrieving question, error 404':'A '.$question->track_id.
+           $question->level_id.$question->difficulty_id.' question fetched');
+       return view('questions.show', compact('question'));
     }
 
     /**
@@ -82,24 +80,24 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        $tracks = Track::lists('track','id');
-        $levels = Level::lists('description', 'id');
-        $difficulties = Difficulty::lists('description', 'id');
-        return view('questions.edit', compact('question','tracks', 'levels', 'difficulties'));
+        return view('questions.edit', compact('question'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  QuestionRequest  $request
      * @param  Question $question
      * @return \Illuminate\Http\Response
      */
-    public function update(QuestionRequest $request, Question $question)
+    public function update(Request $request, Question $question)
     {
+        $request['image'] = (($request->file('image')!=null) ? $this->storeImage($request, $question->id):null);
+        $request['user_id']=Auth::user()->id;
+        dd($request->image);
         $question->update($request->all());
-        session()->flash('flash_message', 'Question '.$question->question.' has been updated.');
-        return redirect('questions');
+        flash('Question '.$question->question.' has been updated.');
+        return redirect('questions/'.$question->id);
     }
 
     /**
@@ -111,5 +109,20 @@ class QuestionController extends Controller
     public function destroy(Question $question)
     {
         //
+    }
+
+    /**
+     * @param $request input request
+     * @param $uuid
+     * @return string image location and name to be stored
+     */
+    public function storeImage($request, $uuid){
+        $image_loc = '/images/questions/Grade'.$request->level_id.'/';
+        $image_name = $uuid. '.' .$request->file('image')->getClientOriginalExtension();
+
+        File::exists(public_path($image_loc.$image_name)) ? File::delete(public_path($image_loc.$image_name)):null;
+        //resize here
+        Image\Facades\Image::make($request->file('image'))->resize(400, 300)->save(public_path($image_loc.$image_name));
+        return $image_loc.$image_name;
     }
 }

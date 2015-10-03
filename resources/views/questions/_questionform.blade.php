@@ -1,4 +1,5 @@
 <!--  form input -->
+<div id="abc">Hello!!!</div>
 <!-- Track form input track-->
 <div class="form-group  col-md-4">
     {!! Form::label('track', 'Topic Track:') !!}
@@ -19,7 +20,7 @@
     {!! Form::select('difficulty_id', $difficulties, $difficult_id,['class'=>'form-control']) !!}
 </div>
 <!-- end: Select input from database for Track -->
-<div class="form-group">
+<div class="form-group col-md-10">
     {!! Form::textarea('question', null,[
     'class' => 'form-control',
     'id' => 'question',
@@ -27,6 +28,28 @@
     'rows' => '5'
     ]) !!}
 </div>
+<!-- Image file -->
+
+    <div class="col-md-2 fileinput fileinput-new" data-provides="fileinput">
+        <div class="col-md-12 fileinput-preview thumbnail" data-trigger="fileinput">
+            <img src={{$image}} class="col-md-6" alt={{$image}}>
+        </div>
+        <div>
+            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span>
+                {!! Form::file('image', null,['class'=>'col-md-12 form-control']) !!}
+            </span>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+        </div>
+        @if (isset($image))
+            <div class="form-group">
+                <a href="/image/.{{$image}}" class="delImage btn btn-default" value="Delete Image" >
+                    <button>Delete Photo</button>
+                </a>
+            </div>
+        @endif
+    </div>
+<!-- end: Image file -->
+
 <!--  form input -->
 <div class="form-group col-md-3">
     <div class="input-group-addon">
@@ -83,16 +106,29 @@
     ]) !!}
 </div>
 <!-- end: text input  -->
+<!--  form input -->
+<div class="form-group col-md-12">
+    {!! Form::text('source', $user->name,[
+        'class' => 'form-control',
+        'id'=> 'source',
+        'placeholder' => 'Please give credit where it is due. Quote source.'
+        ]) !!}
+</div>
+<!-- end: text input  -->
 <!-- Is_private form input -->
 <div class="form-group col-md-6">
-    {!! Form::radio('is_private', false,['class'=>'form-control input-group-addon']) !!}
-    Make Private/Do not share with others
+    <div class="input-group-addon alert-primary">
+        {!! Form::radio('is_private', false) !!}
+        Make Private/Do not share with others
+    </div>
 </div>
 <!-- end: Radio input Is_private -->
 <!-- Is_hidden form input -->
 <div class="form-group col-md-6">
-    {!! Form::radio('is_hidden', false, ['class'=>'form-control input-group-addon']) !!}
+    <div class="input-group-addon alert-info">
+    {!! Form::radio('is_hidden', false) !!}
     Do not use this question for testing
+    </div>
 </div>
 <!-- end: Radio input Is_hidden -->
 
@@ -101,4 +137,3 @@
     {!! Form::submit($submitButtonText,['class'=>'btn btn-primary col-md-12']) !!}
 </div>
 <!-- end: submit button -->
-

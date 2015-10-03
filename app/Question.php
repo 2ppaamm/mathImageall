@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Auth;
 class Question extends Model
 {
     protected $hidden = ['user_id'];
-    protected $fillable = ['track_id', 'level_id', 'question',
-    'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer'];
+    protected $fillable = ['track_id', 'level_id', 'difficulty_id','question',
+    'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer','image', 'source'];
 
     //relationship
     public function user() {                        //who created this question

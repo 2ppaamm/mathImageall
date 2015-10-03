@@ -10,6 +10,7 @@ class TracksSeeder extends Seeder
         Track::create ([
             'track' =>'Algebra',
             'description'=> 'Algebra',
+            'user_id' => 1,
             'lowest_maxile_level' => 500,
             'highest_maxile_level' => 1300
         ]);
@@ -17,6 +18,7 @@ class TracksSeeder extends Seeder
         Track::create ([
             'track' =>'Geometry',
             'description'=> 'Geometry',
+            'user_id' => 2,
             'lowest_maxile_level' => 300,
             'highest_maxile_level' => 1300
         ]);
@@ -24,6 +26,7 @@ class TracksSeeder extends Seeder
         Track::create ([
             'track' =>'Units of Measure',
             'description'=> 'Units of Measure',
+            'user_id' => 3,
             'lowest_maxile_level' => 0,
             'highest_maxile_level' => 600
         ]);
@@ -31,6 +34,7 @@ class TracksSeeder extends Seeder
         Track::create ([
             'track' =>'Graphs',
             'description'=> 'Graphs',
+            'user_id' => 4,
             'lowest_maxile_level' => 400,
             'highest_maxile_level' => 1300
         ]);

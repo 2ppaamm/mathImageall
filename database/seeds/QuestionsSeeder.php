@@ -10,6 +10,7 @@ class QuestionsSeeder extends Seeder
     {
         $faker = Faker::create();
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 1,
             'level_id'=> 7,
             'difficulty_id' =>1,
@@ -23,6 +24,7 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 2
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 1,
             'level_id'=> 7,
             'difficulty_id' =>2,
@@ -36,6 +38,7 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 3
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 1,
             'level_id'=> 7,
             'difficulty_id' =>3,
@@ -49,6 +52,7 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 4
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 2,
             'level_id'=> 7,
             'difficulty_id' =>1,
@@ -62,6 +66,7 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 2
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 2,
             'level_id'=> 7,
             'difficulty_id' =>2,
@@ -75,6 +80,7 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 1
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 2,
             'level_id'=> 7,
             'difficulty_id' =>3,
@@ -88,6 +94,7 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 4
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 3,
             'level_id'=> 7,
             'difficulty_id' =>1,
@@ -101,6 +108,7 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 2
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 3,
             'level_id'=> 7,
             'difficulty_id' =>2,
@@ -114,6 +122,7 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 3
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 3,
             'level_id'=> 7,
             'difficulty_id' =>3,

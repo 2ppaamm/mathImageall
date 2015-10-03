@@ -1,6 +1,6 @@
 @extends('layouts._master')
 @section('content')
-<h1>{{ $question->question }}</h1>
+<h1>{{ $question->question }} by {{ $question->source }}</h1>
 <img src="{{ $question->image }}" alt="">
 <hr>
     <article>

@@ -29,6 +29,9 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot($router);
         // Route bind question model to route /questions
         $router->model('questions', 'App\Question');
+        $router->model('tracks', 'App\Track');
+        $router->model('levels', 'App\Level');
+        $router->model('difficulties', 'App\Difficulty');
     }
 
     /**
