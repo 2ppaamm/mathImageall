@@ -8,10 +8,12 @@ use App\Http\Controllers\Controller;
 use App\Question;
 use App\Http\Requests\QuestionRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Webpatser\Uuid\Uuid;
-use Intervention\Image;
+use App\Image;
+use App\ImageQuestion;
 
 class QuestionController extends Controller
 {
@@ -25,10 +27,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions=Question::latest()->with('track')->with('difficulty')->get();
-
-        flash(isset($questions) ? 'Listing all the questions available on the system' :
-            'Error in retrieving questions');
+        $questions=Question::latest()->with('track')->with('difficulty')->with('images')->get();
         return view('questions.index', compact('questions'));
     }
 
@@ -48,15 +47,14 @@ class QuestionController extends Controller
      * @param  QuestionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(QuestionRequest $request)
+    public function store(QuestionRequest $request, ImageController $imageController)
     {
-        $question = new Question($request->all());
-        $uuid = Uuid::generate(4);                      // generate a unique number of question id
-        $question['id'] = $uuid;
-        $question['image'] = (isset($request->files) ? $question['image']=$this->storeImage($request, $uuid):null);
-        Auth::user()->questions()->save($question);
+        $user = Auth::user();
+        $request['source']= $request->source != null ? $request->source : $user->name;
+        $question = $user->questions()->create($request->all());
+        $question->images()->attach(isset($request->files) ? $imageController->store($request, 'question', $question->id):null);
         flash('flash_message', 'Question created');
-        return redirect('questions/'.$uuid);
+        return redirect('questions/'.$question->id);
     }
 
     /**
@@ -67,9 +65,10 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-       flash(is_null($question) ? 'Error in retrieving question, error 404':'A '.$question->track_id.
-           $question->level_id.$question->difficulty_id.' question fetched');
-       return view('questions.show', compact('question'));
+//        flash(is_null($question) ? 'Error in retrieving question, error 404':'A '.$question->track_id.
+//           $question->level_id.$question->difficulty_id.' question fetched');
+
+        return view('questions.show', compact('question'));
     }
 
     /**
@@ -90,13 +89,17 @@ class QuestionController extends Controller
      * @param  Question $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Question $question)
+    public function update(Request $request, Question $question, ImageController $imageController)
     {
-        $request['image'] = (($request->file('image')!=null) ? $this->storeImage($request, $question->id):null);
-        $request['user_id']=Auth::user()->id;
-        dd($request->image);
         $question->update($request->all());
-        flash('Question '.$question->question.' has been updated.');
+        // detach all current images
+        $currentImage=DB::table('image_question')->where('question_id', '=', $question->id)->lists('image_id');
+        $question->images()->detach($currentImage);
+
+        // attach current image
+        $question->images()->attach(isset($request->files) ? $imageController->store($request, 'question', $question->id):null);
+
+        flash('Question '.$question->id.' has been updated.');
         return redirect('questions/'.$question->id);
     }
 
@@ -108,21 +111,14 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        // delete question image
+        foreach ($question->images as $image) {
+            File::exists(public_path($image->url_link)) ? File::delete(public_path($image->url_link)):null;
+            Image::destroy($image->id);
+        }
+        Question::findOrFail($question->id) ? Question::destroy($question->id):null;
+        flash('Question is deleted');
+        return redirect('questions');
     }
 
-    /**
-     * @param $request input request
-     * @param $uuid
-     * @return string image location and name to be stored
-     */
-    public function storeImage($request, $uuid){
-        $image_loc = '/images/questions/Grade'.$request->level_id.'/';
-        $image_name = $uuid. '.' .$request->file('image')->getClientOriginalExtension();
-
-        File::exists(public_path($image_loc.$image_name)) ? File::delete(public_path($image_loc.$image_name)):null;
-        //resize here
-        Image\Facades\Image::make($request->file('image'))->resize(400, 300)->save(public_path($image_loc.$image_name));
-        return $image_loc.$image_name;
-    }
 }

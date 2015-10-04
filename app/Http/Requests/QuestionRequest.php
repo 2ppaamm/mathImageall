@@ -32,7 +32,7 @@ class QuestionRequest extends Request
             'answer2' => 'required',
             'answer3' => 'required',
             'answer4' => 'required',
-            'image' => 'image|between:100,20000',
+            'image_id' => 'image|between:100,20000',
             'correct_answer' => 'required'
         ];
     }

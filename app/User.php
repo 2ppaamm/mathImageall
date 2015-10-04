@@ -58,17 +58,20 @@ class User extends Model implements AuthenticatableContract,
     }
 
     public function track_results() {                       //result for each track
-        return$this->hasMany('App\User_Track');
+        return $this->hasMany('App\User_Track');
     }
 
     public function user_questions() {                       //result for each question attempted
-        return$this->hasMany('App\User_Question');
+        return $this->hasMany('App\User_Question');
     }
 
     public function user_reports() {                       //reports generated user
-        return$this->hasMany('App\User_Report');
+        return $this->hasMany('App\User_Report');
     }
 
+    public function images(){
+        return $this->hasMany('App\Image');
+    }
     // scope: to use ->current()
     public function scopeCurrent($query){
         $query->where('id','=',Auth::user()->id);

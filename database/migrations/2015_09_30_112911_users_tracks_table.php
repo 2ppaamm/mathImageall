@@ -12,7 +12,7 @@ class UsersTracksTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_tracks', function (Blueprint $table) {
+        Schema::create('track_user', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('track_id')->unsigned();
             $table->foreign('track_id')->references('id')->on('tracks');
@@ -31,6 +31,6 @@ class UsersTracksTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users_tracks');
+        Schema::drop('track_user');
     }
 }

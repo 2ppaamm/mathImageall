@@ -27,18 +27,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script></head>
-    <!--script>
-        $(".delImage").click(function(){
-            alert ($('[name*="token"]').attr('value'));
-            $.ajax({
-                data: {
-                    '_token': $('[name*="token"]').attr('value')
-                },
-                type:"POST", url:"/image/"+event.target.id, success: function(result){
-                    $("#abc").html(result);
-                }});
-        });
-    </script-->
-
 </body>
 </html>

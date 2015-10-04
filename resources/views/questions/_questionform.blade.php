@@ -1,5 +1,4 @@
 <!--  form input -->
-<div id="abc">Hello!!!</div>
 <!-- Track form input track-->
 <div class="form-group  col-md-4">
     {!! Form::label('track', 'Topic Track:') !!}
@@ -20,33 +19,30 @@
     {!! Form::select('difficulty_id', $difficulties, $difficult_id,['class'=>'form-control']) !!}
 </div>
 <!-- end: Select input from database for Track -->
-<div class="form-group col-md-10">
+<div class="form-group col-md-8">
     {!! Form::textarea('question', null,[
     'class' => 'form-control',
     'id' => 'question',
     'placeholder' => 'Question Text',
-    'rows' => '5'
+    'rows' => '8'
     ]) !!}
 </div>
 <!-- Image file -->
 
-    <div class="col-md-2 fileinput fileinput-new" data-provides="fileinput">
+    <div class="col-md-4 fileinput fileinput-new" data-provides="fileinput">
         <div class="col-md-12 fileinput-preview thumbnail" data-trigger="fileinput">
-            <img src={{$image}} class="col-md-6" alt={{$image}}>
+            @if(isset($image))
+                <img src={{$image->url_link}} alt={{$image->url_link}}>
+            @endif
         </div>
         <div>
-            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span>
+            <span class="btn btn-default btn-file">
+                {!! Form::label($imageButtonText, null, ['class'=>'fileinput-new']) !!}
+                <span class="fileinput-exists">Change</span>
                 {!! Form::file('image', null,['class'=>'col-md-12 form-control']) !!}
             </span>
             <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
         </div>
-        @if (isset($image))
-            <div class="form-group">
-                <a href="/image/.{{$image}}" class="delImage btn btn-default" value="Delete Image" >
-                    <button>Delete Photo</button>
-                </a>
-            </div>
-        @endif
     </div>
 <!-- end: Image file -->
 
@@ -108,7 +104,7 @@
 <!-- end: text input  -->
 <!--  form input -->
 <div class="form-group col-md-12">
-    {!! Form::text('source', $user->name,[
+    {!! Form::text('source', $source,[
         'class' => 'form-control',
         'id'=> 'source',
         'placeholder' => 'Please give credit where it is due. Quote source.'

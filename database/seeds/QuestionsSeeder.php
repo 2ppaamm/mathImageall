@@ -10,7 +10,6 @@ class QuestionsSeeder extends Seeder
     {
         $faker = Faker::create();
         Question::create ([
-            'id' => $faker->uuid,
             'track_id' => 1,
             'level_id'=> 7,
             'difficulty_id' =>1,
@@ -20,11 +19,9 @@ class QuestionsSeeder extends Seeder
             'answer3' => '15',
             'answer4' => '25',
             'user_id' => 1,
-            'image' =>$faker->imageUrl(400, 300, 'cats'),
             'correct_answer' => 2
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'track_id' => 1,
             'level_id'=> 7,
             'difficulty_id' =>2,
@@ -34,11 +31,9 @@ class QuestionsSeeder extends Seeder
             'answer3' => '-5',
             'answer4' => '25',
             'user_id' => 2,
-            'image' =>$faker->imageUrl(400, 300, 'cats'),
             'correct_answer' => 3
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'track_id' => 1,
             'level_id'=> 7,
             'difficulty_id' =>3,
@@ -48,11 +43,9 @@ class QuestionsSeeder extends Seeder
             'answer3' => '15',
             'answer4' => '-5',
             'user_id' => 1,
-            'image' =>$faker->imageUrl(400, 300, 'cats'),
             'correct_answer' => 4
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'track_id' => 2,
             'level_id'=> 7,
             'difficulty_id' =>1,
@@ -62,11 +55,9 @@ class QuestionsSeeder extends Seeder
             'answer3' => '15',
             'answer4' => '20',
             'user_id' => 2,
-            'image' =>$faker->imageUrl(400, 300, 'cats'),
             'correct_answer' => 2
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'track_id' => 2,
             'level_id'=> 7,
             'difficulty_id' =>2,
@@ -76,11 +67,9 @@ class QuestionsSeeder extends Seeder
             'answer3' => '15',
             'answer4' => '20',
             'user_id' => 1,
-            'image' =>$faker->imageUrl(400, 300, 'cats'),
             'correct_answer' => 1
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'track_id' => 2,
             'level_id'=> 7,
             'difficulty_id' =>3,
@@ -90,11 +79,9 @@ class QuestionsSeeder extends Seeder
             'answer3' => '15',
             'answer4' => '28',
             'user_id' => 1,
-            'image' =>$faker->imageUrl(400, 300, 'cats'),
             'correct_answer' => 4
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'track_id' => 3,
             'level_id'=> 7,
             'difficulty_id' =>1,
@@ -104,11 +91,9 @@ class QuestionsSeeder extends Seeder
             'answer3' => '2500 m',
             'answer4' => '2 m',
             'user_id' => 1,
-            'image' =>$faker->imageUrl(400, 300, 'cats'),
             'correct_answer' => 2
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'track_id' => 3,
             'level_id'=> 7,
             'difficulty_id' =>2,
@@ -118,11 +103,9 @@ class QuestionsSeeder extends Seeder
             'answer3' => '4000 m',
             'answer4' => '2 m',
             'user_id' => 1,
-            'image' =>$faker->imageUrl(400, 300, 'cats'),
             'correct_answer' => 3
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'track_id' => 3,
             'level_id'=> 7,
             'difficulty_id' =>3,
@@ -132,7 +115,6 @@ class QuestionsSeeder extends Seeder
             'answer3' => '25000 m',
             'answer4' => '2000 m',
             'user_id' => 2,
-            'image' =>$faker->imageUrl(400, 300, 'cats'),
             'correct_answer' => 2
         ]);
     }

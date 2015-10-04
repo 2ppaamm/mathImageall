@@ -28,6 +28,4 @@ Route::resource('questions', 'QuestionController');
 Route::resource('difficulties', 'DifficultyController');
 Route::resource('levels', 'LevelController');
 Route::resource('tracks', 'TrackController');
-Route::get('image/{image}', function(){
-   return "Hello";
-});//'ImageController');
+Route::resource('images', 'ImageController');

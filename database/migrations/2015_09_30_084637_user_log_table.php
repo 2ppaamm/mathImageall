@@ -12,13 +12,13 @@ class UserLogTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_question', function (Blueprint $table) {
+        Schema::create('question_user', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('question_id')->unsigned();
+            $table->foreign('question_id')->references('id')->on('questions');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('question_id');
-            $table->foreign('question_id')->references('id')->on('questions');
-            $table->date('date_tried');
+            $table->date('date_attempted');
             $table->boolean('is_correct');
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class UserLogTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_question');
+        Schema::drop('question_user');
     }
 }

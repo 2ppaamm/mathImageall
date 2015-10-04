@@ -13,7 +13,7 @@ class CreateQuestionTable extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->string('id',36)->primary();
+            $table->increments('id');
             $table->integer('track_id')->unsigned();
             $table->foreign('track_id')->references('id')->on('tracks');
             $table->integer('level_id')->unsigned();
@@ -23,7 +23,6 @@ class CreateQuestionTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('question');
-            $table->string('image')->nullable();
             $table->string('answer1');
             $table->string('answer2');
             $table->string('answer3');
