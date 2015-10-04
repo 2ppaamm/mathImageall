@@ -41,7 +41,7 @@ class ImageController extends Controller
      */
     public function store(Request $request, $type, $question_id)
     {
-        $image_loc = '/allgifted-images/'.$type.'/'.$question_id.'.'.$request->file('image')->getClientOriginalExtension();
+        $image_loc = 'allgifted-images/'.$type.'/'.$question_id.'.'.$request->file('image')->getClientOriginalExtension();
         $image = new Images();
         $image['url_link'] = $image_loc;
         $image = Auth::user()->images()->save($image);
