@@ -1,4 +1,5 @@
 <!--  form input -->
+
 <!-- Track form input track-->
 <div class="form-group  col-md-4">
     {!! Form::label('track', 'Topic Track:') !!}
@@ -27,80 +28,36 @@
     'rows' => '8'
     ]) !!}
 </div>
-<!-- Image file -->
+<div class="col-md-4 thumbnail">
+    <!-- Question Image form input -->
+    <div class="form-group">
+        {!! Form::label('Question Image', 'Question Image:') !!}
+        {!! Form::file('image_question',[
+            'class' => 'form-control fileinput-preview',
+            'id' => 'question_image',
+        ]) !!}
+    </div>
 
-    <div class="col-md-4 fileinput fileinput-new" data-provides="fileinput">
-        <div class="col-md-12 fileinput-preview thumbnail" data-trigger="fileinput">
-            @if(isset($image))
-                <img src={{$image->url_link}} alt={{$image->url_link}}>
-            @endif
+</div>
+<!--  form input for answers -->
+@for ($i = 1; $i < 5; $i++)
+    <div class="form-group col-md-3 thumbnail">
+        <div class="input-group-addon">
+            {!! Form::radio('correct_answer', 1, false) !!}
+            Correct answer
         </div>
-        <div>
-            <span class="btn btn-default btn-file">
-                {!! Form::label($imageButtonText, null, ['class'=>'fileinput-new']) !!}
-                <span class="fileinput-exists">Change</span>
-                {!! Form::file('image', null,['class'=>'col-md-12 form-control']) !!}
-            </span>
-            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-        </div>
+            {!! Form::textarea('answer'.$i, null,[
+            'class' => 'form-control fileinput-preview',
+            'id' => 'answer'.$i,
+            'placeholder' => 'answer'.$i,
+            'rows' => '2'
+            ]) !!}
+            <div class="form-group">
+                Add an image:
+                {!! Form::file('answer'.$i.'_image',['class' => 'form-control fileinput-preview','id' => 'answer1_image']) !!}
+            </div>
     </div>
-<!-- end: Image file -->
-
-<!--  form input -->
-<div class="form-group col-md-3">
-    <div class="input-group-addon">
-        {!! Form::radio('correct_answer', 1, false) !!}
-        Correct answer
-    </div>
-    {!! Form::textarea('answer1', null,[
-    'class' => 'form-control',
-    'id' => 'answer1',
-    'placeholder' => 'answer1',
-    'rows' => '2'
-    ]) !!}
-</div>
-<!-- end: text input  -->
-<!--  form input -->
-<div class="form-group col-md-3">
-    <div class="input-group-addon">
-        {!! Form::radio('correct_answer', 2, false) !!}
-        Correct answer
-    </div>
-    {!! Form::textarea('answer2', null,[
-    'class' => 'form-control',
-    'id' => 'answer2',
-    'placeholder' => 'answer2',
-    'rows' => '2'
-    ]) !!}
-</div>
-<!-- end: text input  -->
-<!--  form input -->
-<div class="form-group col-md-3">
-    <div class="input-group-addon">
-        {!! Form::radio('correct_answer', 3) !!}
-        Correct answer
-    </div>
-    {!! Form::textarea('answer3', null,[
-    'class' => 'form-control',
-    'id' => 'answer3',
-    'placeholder' => 'answer3',
-    'rows' => '2'
-    ]) !!}
-</div>
-<!-- end: text input  -->
-<!--  form input -->
-<div class="form-group col-md-3">
-    <div class="input-group-addon">
-        {!! Form::radio('correct_answer', 4) !!}
-        Correct answer
-    </div>
-    {!! Form::textarea('answer4', null,[
-    'class' => 'form-control',
-    'id' => 'answer4',
-    'placeholder' => 'answer4',
-    'rows' => '2'
-    ]) !!}
-</div>
+@endfor
 <!-- end: text input  -->
 <!--  form input -->
 <div class="form-group col-md-12">

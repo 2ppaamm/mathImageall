@@ -27,7 +27,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions=Question::latest()->with('track')->with('difficulty')->with('images')->get();
+        $questions=Question::latest()->with('track')->with('difficulty')->get();
         return view('questions.index', compact('questions'));
     }
 
@@ -49,10 +49,14 @@ class QuestionController extends Controller
      */
     public function store(QuestionRequest $request, ImageController $imageController)
     {
+        $question = Input::all();
         $user = Auth::user();
-        $request['source']= $request->source != null ? $request->source : $user->name;
-        $question = $user->questions()->create($request->all());
-        $question->images()->attach(isset($request->files) ? $imageController->store($request, 'question', $question->id):null);
+        $question['source']= $request->source != null ? $request->source : $user->name;
+        $question['id']=Uuid::generate(4);
+        //dd($question['image_question']);
+        //dd ($question['id']);
+        $question['image_question'] = $question['image_question']!=null ? $imageController->store($request, 'question', $question['id']):null;
+        $question = $user->questions()->create($question);
         flash('flash_message', 'Question created');
         return redirect('questions/'.$question->id);
     }
@@ -120,5 +124,4 @@ class QuestionController extends Controller
         flash('Question is deleted');
         return redirect('questions');
     }
-
 }

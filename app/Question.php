@@ -9,7 +9,8 @@ class Question extends Model
 {
     protected $hidden = ['user_id'];
     protected $fillable = ['track_id', 'level_id', 'difficulty_id','question',
-    'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer', 'source', 'id'];
+        'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer', 'source', 'question_image'
+        ,'answer1_image','answer2_image','answer3_image','answer4_image'];
 
     //relationship
     public function user() {                        //who created this question
@@ -28,9 +29,6 @@ class Question extends Model
         return $this->belongsTo('App\Difficulty');
     }
 
-    public function images(){
-        return $this->belongsToMany('App\Image')->withTimestamps();
-    }
     // scope: to use ->public()
     public function scopePublic($query){
         $query->where('is_private','=', FALSE);

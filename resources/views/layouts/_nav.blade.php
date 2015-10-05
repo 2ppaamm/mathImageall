@@ -29,7 +29,7 @@
                     </ul>
                 </li>
             </ul>
-            @include('layouts._loginForm')
+            @include('layouts.loginForm')
             @include('layouts._rightnav')
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

@@ -41,16 +41,11 @@ class ImageController extends Controller
      */
     public function store(Request $request, $type, $question_id)
     {
-        $image_loc = '/allgifted-images/'.$type.'/'.$question_id.'.'.$request->file('image')->getClientOriginalExtension();
-        $image = new Images();
-        $image['url_link'] = $image_loc;
-        $image = Auth::user()->images()->save($image);
-        //delete image with intended name
+        $image_loc = '/allgifted-images/'.$type.'/'.$question_id.'.'.$request->file('image_question')->getClientOriginalExtension();
         File::exists(public_path($image_loc)) ? File::delete(public_path($image_loc)):null;
-
         //resize here
-        Image\Facades\Image::make($request->file('image'))->fit(500, 300)->save(public_path($image_loc));
-        return $image;
+        Image\Facades\Image::make($request->file('image_question'))->fit(500, 300)->save(public_path($image_loc));
+        return $image_loc;
     }
 
     /**

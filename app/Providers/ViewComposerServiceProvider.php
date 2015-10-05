@@ -18,7 +18,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     {
         // always returns $user whether logged in or not, null if not
 
-        view()->composer(['layouts._rightnav','layouts._loginForm'], function($view){
+        view()->composer(['layouts._rightnav','layouts.loginForm'], function($view){
             $view->with('user', Auth::check() ? Auth::user()->firstname : null);
         });
 
