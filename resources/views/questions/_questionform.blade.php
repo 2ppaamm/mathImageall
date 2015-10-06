@@ -3,7 +3,7 @@
 <!-- Track form input track-->
 <div class="form-group  col-md-4">
     {!! Form::label('track', 'Topic Track:') !!}
-    {!! Form::select('track_id', $tracks, $track_id,['class'=>'form-control']) !!}
+    {!! Form::select('track_id', $tracks, $track_id,['class'=>'form-control', 'value'=>'Select Track']) !!}
 </div>
 <!-- end: Select input from database for Track -->
 

@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Track;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers;
 
 class TrackController extends Controller
 {
@@ -16,10 +20,9 @@ class TrackController extends Controller
      */
     public function index()
     {
-        $tracks=Track::with('user')->get();
-        $flash_message = isset($tracks) ? 'Listing all the tracks available on the system' :
-            'Error in retrieving tracks';
-        session()->flash('flash_message', $flash_message);
+        $tracks=Track::with('user')->public()->get();
+        flash($flash_message = isset($tracks) ? 'Listing all the tracks available on the system' :
+            'Error in retrieving tracks');
         return view('tracks.index', compact ('tracks'));
     }
 
@@ -30,7 +33,7 @@ class TrackController extends Controller
      */
     public function create()
     {
-        //
+        return view('tracks.create');
     }
 
     /**
@@ -39,9 +42,12 @@ class TrackController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, ImageController $imageController)
     {
-        //
+        $track = new track($request->all());
+        $track['image'] = $request['image']!=null ? $imageController->store($request->file('image'), 'tracks', $track->track):null;
+        $track=Auth::user()->tracks()->save($track);
+        return redirect('tracks/'.$track->id);
     }
 
     /**
@@ -50,12 +56,8 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Track $track)
     {
-        $track = Track::find($id);
-        $flash_message = isset($track) ? 'Here is track '.$track->track.' you are looking for' :
-            'Error in retrieving track'.$id;
-        session()->flash('flash_message', $flash_message);
         return view('tracks.show', compact('track'));
     }
 
@@ -67,7 +69,7 @@ class TrackController extends Controller
      */
     public function edit($id)
     {
-        //
+        return "hello";
     }
 
     /**
@@ -77,9 +79,17 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Track $track)
     {
-        //
+        if (Request::ajax())
+        {
+            $track = Track::findOrFail(Request::get('pk'));
+            $track[Request::get('name')] = Request::get('value');
+            $track->update();
+            return response()->json(['track' => $track, 200], 200);        }
+        else {
+            return redirect('tracks/'.$track->id);
+        }
     }
 
     /**

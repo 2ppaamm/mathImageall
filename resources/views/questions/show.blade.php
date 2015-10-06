@@ -5,45 +5,17 @@
         <p> Source: {{ $question->source }}</p>
     @endif
     <div class="col-md-12">
-        <img src="{{ $question->question_image }}" alt="">
+        <img src="{{ $question->image_question }}" alt="{{ $question->question }}">
     </div>
     <hr>
 
     <div class="col-md-12">
         <h3>Click on the right answer:</h3>
         <div class="row">
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                    {{$question->answer1}}
-                    @if ($question->answer1_image!=null)
-                        <img src="{{ $question->answer1_image }}" alt="$question->answer1">
-                    @endif
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                    {{ $question->answer2 }}
-                    @if ($question->answer2_image!=null)
-                        <img src="{{ $question->answer2_image }}" alt="$question->answer2">
-                    @endif
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                    {{ $question->answer3 }}
-                    @if ($question->answer3_image!=null)
-                        <img src="{{ $question->answer3_image }}" alt="$question->answer3">
-                    @endif
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                    {{ $question->answer4 }}
-                    @if ($question->answer4_image!=null)
-                        <img src="{{ $question->answer4_image }}" alt="$question->answer4">
-                    @endif
-                </a>
-            </div>
+            @include('questions._showanswer', ['answer'=>'answer1_image', 'number'=>'answer1'])
+            @include('questions._showanswer', ['answer'=>'answer2_image', 'number'=>'answer2'])
+            @include('questions._showanswer', ['answer'=>'answer3_image', 'number'=>'answer3'])
+            @include('questions._showanswer', ['answer'=>'answer4_image', 'number'=>'answer4'])
         </div>
     </div>
     <div>

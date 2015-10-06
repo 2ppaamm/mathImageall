@@ -27,5 +27,6 @@ Route::get('/notices', function() {
 Route::resource('questions', 'QuestionController');
 Route::resource('difficulties', 'DifficultyController');
 Route::resource('levels', 'LevelController');
-Route::resource('tracks', 'TrackController');
+Route::resource('tracks', 'TrackController',['except' => ['update']]);
+Route::post('tracks/1', 'TrackController@update');
 Route::resource('images', 'ImageController');

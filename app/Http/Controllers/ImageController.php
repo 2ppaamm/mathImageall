@@ -39,12 +39,12 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $type, $question_id)
+    public function store($image, $type, $primary_id)
     {
-        $image_loc = '/allgifted-images/'.$type.'/'.$question_id.'.'.$request->file('image_question')->getClientOriginalExtension();
+        $image_loc = '/allgifted-images/'.$type.'/'.$primary_id.'.'.$image->getClientOriginalExtension();
         File::exists(public_path($image_loc)) ? File::delete(public_path($image_loc)):null;
         //resize here
-        Image\Facades\Image::make($request->file('image_question'))->fit(500, 300)->save(public_path($image_loc));
+        Image\Facades\Image::make($image)->fit(500, 300)->save(public_path($image_loc));
         return $image_loc;
     }
 

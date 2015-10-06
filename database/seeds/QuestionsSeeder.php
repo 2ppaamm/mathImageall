@@ -10,11 +10,12 @@ class QuestionsSeeder extends Seeder
     {
         $faker = Faker::create();
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 1,
             'level_id'=> 7,
             'difficulty_id' =>1,
             'question' => 'x + 10 = 5. What is x?',
-            'question_image' => $faker->imageUrl(500, 300, 'cats'),
+            'image_question' => $faker->imageUrl(500, 300, 'cats'),
             'answer1' => '35',
             'answer1_image' => $faker->imageUrl(250, 150, 'food'),
             'answer2' => '-5',
@@ -27,11 +28,12 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 2
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 1,
             'level_id'=> 7,
             'difficulty_id' =>2,
             'question' => 'y + 10 = 5. What is y?',
-            'question_image' => $faker->imageUrl(500, 300, 'cats'),
+            'image_question' => $faker->imageUrl(500, 300, 'cats'),
             'answer1' => '35',
             'answer1_image' => $faker->imageUrl(250, 150, 'food'),
             'answer2' => '5',
@@ -44,11 +46,12 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 3
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 1,
             'level_id'=> 7,
             'difficulty_id' =>3,
             'question' => 'z + 10 = 5. What is z?',
-            'question_image' => $faker->imageUrl(500, 300, 'cats'),
+            'image_question' => $faker->imageUrl(500, 300, 'cats'),
             'answer1' => '35',
             'answer1_image' => $faker->imageUrl(250, 150, 'food'),
             'answer2' => '5',
@@ -61,11 +64,12 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 4
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 2,
             'level_id'=> 7,
             'difficulty_id' =>1,
             'question' => 'The base and height of a triangle is 9cm and 4 cm respectively. What is the area?',
-            'question_image' => $faker->imageUrl(400, 300, 'cats'),
+            'image_question' => $faker->imageUrl(400, 300, 'cats'),
             'answer1' => '38',
             'answer1_image' => $faker->imageUrl(250, 150, 'food'),
             'answer2' => '18',
@@ -78,11 +82,12 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 2
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 2,
             'level_id'=> 7,
             'difficulty_id' =>2,
             'question' => 'The base and height of a triangle is 9cm and 8 cm respectively. What is the area?',
-            'question_image' => $faker->imageUrl(400, 300, 'cats'),
+            'image_question' => $faker->imageUrl(400, 300, 'cats'),
             'answer1' => '36',
             'answer1_image' => $faker->imageUrl(250, 150, 'food'),
             'answer2' => '18',
@@ -95,11 +100,12 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 1
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 2,
             'level_id'=> 7,
             'difficulty_id' =>3,
             'question' => 'The base and height of a triangle is 14 cm and 4 cm respectively. What is the area?',
-            'question_image' => $faker->imageUrl(500, 300, 'cats'),
+            'image_question' => $faker->imageUrl(500, 300, 'cats'),
             'answer1' => '38',
             'answer1_image' => $faker->imageUrl(250, 150, 'food'),
             'answer2' => '18',
@@ -112,11 +118,12 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 4
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 3,
             'level_id'=> 7,
             'difficulty_id' =>1,
             'question' => 'How many meters is 2 km?',
-            'question_image' => $faker->imageUrl(500, 300, 'cats'),
+            'image_question' => $faker->imageUrl(500, 300, 'cats'),
             'answer1' => '2400 m',
             'answer1_image' => $faker->imageUrl(250, 150, 'food'),
             'answer2' => '2000 m',
@@ -129,11 +136,12 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 2
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 3,
             'level_id'=> 7,
             'difficulty_id' =>2,
             'question' => 'How many meters is 4 km?',
-            'question_image' => $faker->imageUrl(500, 300, 'cats'),
+            'image_question' => $faker->imageUrl(500, 300, 'cats'),
             'answer1' => '2400 m',
             'answer1_image' => $faker->imageUrl(250, 150, 'food'),
             'answer2' => '2000 m',
@@ -146,11 +154,12 @@ class QuestionsSeeder extends Seeder
             'correct_answer' => 3
         ]);
         Question::create ([
+            'id' => $faker->uuid,
             'track_id' => 3,
             'level_id'=> 7,
             'difficulty_id' =>3,
             'question' => 'How many meters is 200 km?',
-            'question_image' => $faker->imageUrl(500, 300, 'cats'),
+            'image_question' => $faker->imageUrl(500, 300, 'cats'),
             'answer1' => '24000 m',
             'answer1_image' => $faker->imageUrl(500, 300, 'food'),
             'answer2' => '200000 m',

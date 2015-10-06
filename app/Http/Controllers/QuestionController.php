@@ -49,16 +49,20 @@ class QuestionController extends Controller
      */
     public function store(QuestionRequest $request, ImageController $imageController)
     {
-        $question = Input::all();
-        $user = Auth::user();
-        $question['source']= $request->source != null ? $request->source : $user->name;
-        $question['id']=Uuid::generate(4);
-        //dd($question['image_question']);
-        //dd ($question['id']);
-        $question['image_question'] = $question['image_question']!=null ? $imageController->store($request, 'question', $question['id']):null;
-        $question = $user->questions()->create($question);
-        flash('flash_message', 'Question created');
-        return redirect('questions/'.$question->id);
+        $question = new Question($request->all());
+        $uuid = Uuid::generate(4);
+        $question['id'] = $uuid;
+        $question['source']= $request->source != null ? $request->source : Auth::user()->name;
+        $question['image_question'] = $request['image_question']!=null ? $imageController->store($request->file('image_question'), 'question', $question['id']):null;
+
+        for ($i = 1; $i<5; $i++) {
+            $image_field = 'answer'.$i.'_image';
+            $question[$image_field] = $request[$image_field]!=null ?
+                $imageController->store($request->file($image_field), 'answer'.$i, $question['id']):null;
+        }
+        Auth::user()->questions()->save($question);
+        flash('Question created.This is how your question will look like:');
+        return redirect('questions/'.$uuid);
     }
 
     /**
@@ -95,15 +99,17 @@ class QuestionController extends Controller
      */
     public function update(Request $request, Question $question, ImageController $imageController)
     {
-        $question->update($request->all());
-        // detach all current images
-        $currentImage=DB::table('image_question')->where('question_id', '=', $question->id)->lists('image_id');
-        $question->images()->detach($currentImage);
+        // Handle Images
+        $question['image_question'] = $request['image_question']!=null ? $imageController->store($request->file('image_question'), 'question', $question['id']):null;
+        for ($i = 1; $i<5; $i++) {
+            $image_field = 'answer'.$i.'_image';
+            $question[$image_field] = $request[$image_field]!=null ?
+                $imageController->store($request->file($image_field), 'answer'.$i, $question['id']):null;
+        }
 
-        // attach current image
-        $question->images()->attach(isset($request->files) ? $imageController->store($request, 'question', $question->id):null);
+        $question->update();
 
-        flash('Question '.$question->id.' has been updated.');
+        flash('Question '.$question->id.' has been updated. This is how your question will look like:');
         return redirect('questions/'.$question->id);
     }
 
