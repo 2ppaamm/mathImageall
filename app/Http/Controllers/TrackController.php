@@ -84,6 +84,8 @@ class TrackController extends Controller
         if (Request::ajax())
         {
             $track = Track::findOrFail(Request::get('pk'));
+//            $track[Request::get('name')] = Request::get('name') == "is_private"|| Request::get('name')== "is_hidden"?
+  //              (Request::get('value') === 'TRUE') : Request::get('value');
             $track[Request::get('name')] = Request::get('value');
             $track->update();
             return response()->json(['track' => $track, 200], 200);        }

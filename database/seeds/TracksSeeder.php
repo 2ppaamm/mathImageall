@@ -27,7 +27,6 @@ class TracksSeeder extends Seeder
             'track' =>'Units of Measure',
             'description'=> 'Units of Measure',
             'user_id' => 3,
-            'is_private' =>TRUE,
             'lowest_maxile_level' => 0,
             'highest_maxile_level' => 600
         ]);
@@ -35,7 +34,6 @@ class TracksSeeder extends Seeder
         Track::create ([
             'track' =>'Graphs',
             'description'=> 'Graphs',
-            'is_private' =>TRUE,
             'user_id' => 4,
             'lowest_maxile_level' => 400,
             'highest_maxile_level' => 1300

@@ -18,6 +18,8 @@ class TestReportTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->date('date_of_report');
             $table->string('report_content');
+            $table->integer('status_id')->unsigned()->default(1);
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->timestamps();
         });
     }

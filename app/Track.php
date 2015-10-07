@@ -10,7 +10,7 @@ class Track extends Model
 {
     protected $hidden = ['user_id'];
     protected $fillable = ['track', 'description', 'lowest_maxile_level','lowest_maxile_level',
-        'image', 'is_private', 'is_hidden'];
+        'image', 'status'];
 
     //relationship
     public function user() {                        //who created this track
@@ -19,6 +19,10 @@ class Track extends Model
 
     public function levels(){
         return $this->hasMany('App\Level');
+    }
+
+    public function status() {
+        return $this->belongsTo('App\Status');
     }
 
     public function questions(){
@@ -33,7 +37,7 @@ class Track extends Model
                 $query->latest();
             }
             else {
-                $query->where('user_id','!=',$current_user->id)->whereIsPrivate(FALSE)
+                $query->where('user_id','!=',$current_user->id)->with('status')->where('status_id', '=', '3')
                     -> orWhere('user_id', '=', $current_user->id)->latest();
             }
         }

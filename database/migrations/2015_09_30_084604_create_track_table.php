@@ -21,8 +21,8 @@ class CreateTrackTable extends Migration
             $table->integer('user_id')->unsigned()->default(1);
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('image')->nullable();
-            $table->boolean('is_private')->default(FALSE);
-            $table->boolean('is_hidden')->default(FALSE);
+            $table->integer('status_id')->unsigned()->default(1);
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->timestamps();
         });
     }

@@ -33,8 +33,8 @@ class CreateQuestionTable extends Migration
             $table->string('answer4')->nullable();
             $table->string('answer4_image')->nullable();
             $table->string('correct_answer');
-            $table->boolean('is_private')->default(FALSE);
-            $table->boolean('is_hidden')->default(FALSE);
+            $table->integer('status_id')->unsigned()->default(1);
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->string('source')->nullable();
             $table->timestamps();
         });

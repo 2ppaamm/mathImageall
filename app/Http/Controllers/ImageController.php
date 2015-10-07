@@ -42,6 +42,7 @@ class ImageController extends Controller
     public function store($image, $type, $primary_id)
     {
         $image_loc = '/allgifted-images/'.$type.'/'.$primary_id.'.'.$image->getClientOriginalExtension();
+        //dd($image_loc);
         File::exists(public_path($image_loc)) ? File::delete(public_path($image_loc)):null;
         //resize here
         Image\Facades\Image::make($image)->fit(500, 300)->save(public_path($image_loc));
