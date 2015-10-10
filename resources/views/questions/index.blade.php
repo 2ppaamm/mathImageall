@@ -7,11 +7,11 @@
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">List of questions
-                <button id='add-btn' type="button" class="btn-add btn btn-success btn-min" data-url="/questions/create">Add New Question</button>
+                <button id='add-btn' type="button" class="btn-add btn btn-success btn-min"><a href="/questions/create">Add New Question</a></button>
             </div>
 
-            <table id="edit-table">
-                <tr>
+            <table class= "table table-striped" id="edit-table">
+            <tr>
                     <th>Image</th>
                     <th>Track</th>
                     <th>Level</th>
