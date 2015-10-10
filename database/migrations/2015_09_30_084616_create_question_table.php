@@ -14,12 +14,12 @@ class CreateQuestionTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->string('id',36)->primary();
-            $table->integer('track_id')->unsigned();
-            $table->foreign('track_id')->references('id')->on('tracks');
-            $table->integer('level_id')->unsigned();
-            $table->foreign('level_id')->references('id')->on('levels');
-            $table->integer('difficulty_id')->unsigned();
-            $table->foreign('difficulty_id')->references('id')->on('levels');
+            $table->integer('track_id')->unsigned()->nullable();
+            $table->foreign('track_id')->references('id')->on('tracks')->onDelete('set null');
+            $table->integer('level_id')->unsigned()->nullable();
+            $table->foreign('level_id')->references('id')->on('levels')->onDelete('set null');
+            $table->integer('difficulty_id')->unsigned()->nullable();
+            $table->foreign('difficulty_id')->references('id')->on('levels')->onDelete('set null');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('question');

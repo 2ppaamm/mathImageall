@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Level;
+use Request;
+use Illuminate\Support\Facades\Auth;
 
 class LevelController extends Controller
 {
@@ -16,10 +18,9 @@ class LevelController extends Controller
      */
     public function index()
     {
-        $levels = Level::all();
-        $flash_message = isset($levels) ? 'Listing all the tracks available on the system' :
-            'Error in retrieving tracks';
-        session()->flash('flash_message', $flash_message);
+        $levels = Level::with('user')->with('status')->public()->get();
+        flash($flash_message = isset($levels) ? 'Listing all the levels available on the system' :
+            'Error in retrieving levels');
         return view('levels.index', compact ('levels'));
     }
 
@@ -30,7 +31,10 @@ class LevelController extends Controller
      */
     public function create()
     {
-        //
+        if (Request::ajax()){
+            return view('levels.editForm', compact('level'))->render();
+        }
+        else return view('levels.create');
     }
 
     /**
@@ -41,18 +45,12 @@ class LevelController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        if (Request::ajax()){
+            return Auth::user()->levels()->save($level=new level(Request::all()));
+        } else {
+            Auth::user()->levels()->save($level=new level(Request::all()));
+            return redirect('levels/'.$level->id);
+        }
     }
 
     /**
@@ -73,9 +71,19 @@ class LevelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Level $level)
     {
-        //
+
+        if (Request::ajax()) {
+            if (null == (Request::all())) {
+                return response()->json(['response' => 'error in level update', 404], 404);
+            } else {
+                $level = Level::findOrFail(Request::get('pk'));
+                $level[Request::get('name')] = Request::get('value');
+                $level->update();
+                return response()->json(['level' => $level, 200], 200);
+            }
+        }
     }
 
     /**
@@ -84,8 +92,16 @@ class LevelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Level $level)
     {
-        //
+        if (Request::ajax()) {
+            return Level::findOrFail($level->id) ? Level::destroy($level->id):null;
+        }
+        else {
+
+        }
+        Level::findOrFail($level->id) ? Level::destroy($level->id):null;
+        flash('Level is deleted');
+        return redirect('levels');
     }
 }

@@ -12,8 +12,8 @@ class StatusSeeder extends Seeder
     public function run()
     {
         Status::create ([
-            'status' =>'Unpublished',
-            'description' => 'Only Me'
+            'status' =>'Only Me',
+            'description' => 'Unpublished only creator can see it'
         ]);
         Status::create ([
             'status' =>'Restricted',

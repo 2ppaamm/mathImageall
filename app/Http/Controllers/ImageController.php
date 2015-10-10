@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Image as Images;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
-use Intervention\Image;
+use Intervention\Image as Image;
 
 class ImageController extends Controller
 {
@@ -42,10 +42,11 @@ class ImageController extends Controller
     public function store($image, $type, $primary_id)
     {
         $image_loc = '/allgifted-images/'.$type.'/'.$primary_id.'.'.$image->getClientOriginalExtension();
-        //dd($image_loc);
         File::exists(public_path($image_loc)) ? File::delete(public_path($image_loc)):null;
         //resize here
-        Image\Facades\Image::make($image)->fit(500, 300)->save(public_path($image_loc));
+        return $image->getClientOriginalExtenstion();
+        Image\Facades\Image::make($image->getRealPath())->resize(300, 200);
+        Image\Facades\Image ::make($image)->fit(500, 300);//->save(public_path($image_loc));
         return $image_loc;
     }
 

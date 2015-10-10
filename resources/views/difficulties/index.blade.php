@@ -1,25 +1,24 @@
 @extends('layouts._master')
 @section('content')
-<h1>Difficulties</h1>
+<h1>Difficulties on the System</h1>
+<button id='add-btn' type="button" class="btn-add btn btn-success btn-min" data-url="/difficulties/create">Add New Difficulty</button>
 <hr>
- @if (count($difficulties))
-   <h3>
-     The list of Challenges or Difficulties:
-   </h3>
-    <ul>
-        @foreach ($difficulties as $difficulty)
-          <article>
-              <p>
-                   <a href="{{ url('/difficulties', ($difficulty->id)) }}">
-                       <h3>
-                           Objective {{$difficulty->short_description}}
-                       </h3>
-                       <span>{{ $difficulty->description }}</span>
-                  {{ $difficulty->description}}
-                  </a>
-              </p>
-          </article>
-        @endforeach
-     </ul>
+
+@if (count($difficulties))
+       <table class= "table table-striped" id="edit-table">
+           <tr>
+               <th>Image</th>
+               <th>Difficulty</th>
+               <th>Short Description</th>
+               <th>Description</th>
+               <th>Created by</th>
+               <th>Statuses</th>
+           </tr>
+           @include('difficulties.editForm')
+           @foreach ($difficulties as $difficulty)
+               @include('difficulties._rowform')
+           @endforeach
+       </table>
+   </div>
  @endif
 @stop

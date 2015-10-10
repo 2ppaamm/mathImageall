@@ -20,7 +20,7 @@ class TrackController extends Controller
      */
     public function index()
     {
-        $tracks=Track::with('user')->public()->get();
+        $tracks=Track::with('user')->with('status')->public()->get();
         flash($flash_message = isset($tracks) ? 'Listing all the tracks available on the system' :
             'Error in retrieving tracks');
         return view('tracks.index', compact ('tracks'));
@@ -33,7 +33,10 @@ class TrackController extends Controller
      */
     public function create()
     {
-        return view('tracks.create');
+        if (Request::ajax()){
+            return view('tracks.editForm', compact('track'))->render();
+        }
+        else return view('tracks.create');
     }
 
     /**
@@ -42,12 +45,14 @@ class TrackController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, ImageController $imageController)
+    public function store(Request $request)
     {
-        $track = new track($request->all());
-        $track['image'] = $request['image']!=null ? $imageController->store($request->file('image'), 'tracks', $track->track):null;
-        $track=Auth::user()->tracks()->save($track);
-        return redirect('tracks/'.$track->id);
+        if (Request::ajax()){
+            return Auth::user()->tracks()->save($track=new track(Request::all()));
+        } else {
+            Auth::user()->tracks()->save($track=new track(Request::all()));
+            return redirect('tracks/'.$track->id);
+        }
     }
 
     /**
@@ -69,7 +74,7 @@ class TrackController extends Controller
      */
     public function edit($id)
     {
-        return "hello";
+        return 'not implemented';
     }
 
     /**
@@ -81,15 +86,20 @@ class TrackController extends Controller
      */
     public function update(Request $request, Track $track)
     {
-        if (Request::ajax())
-        {
-            $track = Track::findOrFail(Request::get('pk'));
+        if (Request::ajax()) {
+            if (null==(Request::all())) {
+                return response()->json(['response' => 'error in track update', 404], 404);
+            } else {
+                $track = Track::findOrFail(Request::get('pk'));
 //            $track[Request::get('name')] = Request::get('name') == "is_private"|| Request::get('name')== "is_hidden"?
-  //              (Request::get('value') === 'TRUE') : Request::get('value');
-            $track[Request::get('name')] = Request::get('value');
-            $track->update();
-            return response()->json(['track' => $track, 200], 200);        }
+                //              (Request::get('value') === 'TRUE') : Request::get('value');
+                $track[Request::get('name')] = Request::get('value');
+                $track->update();
+                return response()->json(['track' => $track, 200], 200);
+            }
+        }
         else {
+            Auth::user()->tracks()->save($track);
             return redirect('tracks/'.$track->id);
         }
     }
@@ -100,8 +110,16 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Track $track)
     {
-        //
+        if (Request::ajax()) {
+            return Track::findOrFail($track->id) ? Track::destroy($track->id):null;
+        }
+        else {
+
+        }
+            Track::findOrFail($track->id) ? Track::destroy($track->id):null;
+            flash('Track is deleted');
+            return redirect('tracks');
     }
 }

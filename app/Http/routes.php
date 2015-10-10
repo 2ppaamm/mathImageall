@@ -25,8 +25,10 @@ Route::get('/notices', function() {
 });
 
 Route::resource('questions', 'QuestionController');
-Route::resource('difficulties', 'DifficultyController');
-Route::resource('levels', 'LevelController');
-Route::resource('tracks', 'TrackController',['except' => ['update']]);
+Route::resource('difficulties', 'DifficultyController', ['except' => ['update', 'edit', 'show']]);
+Route::post('difficulties/{id}', 'DifficultyController@update');
+Route::resource('levels', 'LevelController', ['except' => ['update', 'edit', 'show']]);
+Route::post('levels/{id}', 'LevelController@update');
+Route::resource('tracks', 'TrackController',['except' => ['update', 'edit', 'show']]);
 Route::post('tracks/{id}', 'TrackController@update');
 Route::resource('images', 'ImageController', ['only' => ['store']]);

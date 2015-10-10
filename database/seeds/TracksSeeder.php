@@ -8,6 +8,14 @@ class TracksSeeder extends Seeder
     public function run()
     {
         Track::create ([
+            'track' =>'Uncategorized',
+            'description'=> 'Uncategorized',
+            'user_id' => 1,
+            'lowest_maxile_level' => 0,
+            'highest_maxile_level' => 0
+        ]);
+
+        Track::create ([
             'track' =>'Algebra',
             'description'=> 'Algebra',
             'user_id' => 1,

@@ -22,6 +22,14 @@
     <div class="container">
         @yield('content')
     </div>
-@include('layouts._footer')
+    <!-- Latest compiled and minified JavaScript -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/bootstrap3-editable/js/bootstrap-editable.js"></script>
+    <script src="/js/math.js"></script>
+
+@include('layouts._javascript')
+
 </body>
 </html>

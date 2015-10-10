@@ -27,7 +27,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions=Question::latest()->with('track')->with('difficulty')->get();
+        $questions=Question::latest()->with('track')->with('level')->with('difficulty')->with('status')->with('user')->get();
         return view('questions.index', compact('questions'));
     }
 
@@ -53,8 +53,8 @@ class QuestionController extends Controller
         $uuid = Uuid::generate(4);
         $question['id'] = $uuid;
         $question['source']= $request->source != null ? $request->source : Auth::user()->name;
-        $question['image_question'] = $request['image_question']!=null ? $imageController->store($request->file('image_question'), 'question', $question['id']):null;
-
+        $question['image_question'] = $request->image_question!=null ? $imageController->store(Input::file('image_question'), 'question', $question['id']):null;
+        dd($request->image_question);
         for ($i = 1; $i<5; $i++) {
             $image_field = 'answer'.$i.'_image';
             $question[$image_field] = $request[$image_field]!=null ?

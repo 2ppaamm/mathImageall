@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class Track extends Model
 {
     protected $hidden = ['user_id'];
-    protected $fillable = ['track', 'description', 'lowest_maxile_level','lowest_maxile_level',
+    protected $fillable = ['track', 'description', 'lowest_maxile_level','highest_maxile_level',
         'image', 'status'];
 
     //relationship

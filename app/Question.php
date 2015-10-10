@@ -28,6 +28,9 @@ class Question extends Model
     public function difficulty(){
         return $this->belongsTo('App\Difficulty');
     }
+    public function status() {
+        return $this->belongsTo('App\Status');
+    }
 
     // scope: to use ->public()
     public function scopePublic($query){
