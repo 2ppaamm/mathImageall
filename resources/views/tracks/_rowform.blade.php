@@ -12,8 +12,9 @@
     <td>
         <div class="btn-group" role="group" aria-label="">
             <div class="btn-group" role="group">
-                <a href="#" id="status_id" class="edit btn-block btn-info" data-type="select" data-pk="{{$track->id}}" data-url="/tracks/{{$track->id}}" data-title="Status?">{{ $track->status->status }}</a>
-                <button type="button" class="btn-copy btn btn-warning btn-min" style="display: none">Copy</button>
+                <a href="#" id="status_id" class="btn edit btn-min btn-block btn-info" data-type="select" data-pk="{{$track->id}}" data-url="levels/{{$track->id}}" data-title="Status?">{{ $track->status->status }}</a>
+                <button type="button" class="btn-warning btn-block" style="display: none">Copy</button>
+                <!-- Delete Question Form starts -->
                 {!! Form::open(['method'=>'DELETE','class'=>'delete-form', 'url'=>'tracks/'.$track->id]) !!}
                 {!! Form::submit("Delete", ['class'=>"btn-danger btn-block"]) !!}
                 {!! Form::close() !!}

@@ -138,6 +138,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -148,7 +149,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
@@ -204,8 +204,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Flash' => Laracasts\Flash\FlashServiceProvider::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
-        'Image' => Intervention\Image\Facades\Image::class,
-
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];

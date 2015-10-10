@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Image as Images;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
-use Intervention\Image as Image;
+use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManager;
 
 class ImageController extends Controller
 {
@@ -44,9 +44,7 @@ class ImageController extends Controller
         $image_loc = '/allgifted-images/'.$type.'/'.$primary_id.'.'.$image->getClientOriginalExtension();
         File::exists(public_path($image_loc)) ? File::delete(public_path($image_loc)):null;
         //resize here
-        return $image->getClientOriginalExtenstion();
-        Image\Facades\Image::make($image->getRealPath())->resize(300, 200);
-        Image\Facades\Image ::make($image)->fit(500, 300);//->save(public_path($image_loc));
+        Image::make($image)->fit(500, 300)->save(public_path($image_loc));
         return $image_loc;
     }
 
