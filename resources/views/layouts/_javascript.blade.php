@@ -32,6 +32,11 @@
             $('#newForm').show();
         });
 
+        $('#add-first').click(function(){
+            $('.table').show();
+            $('#newForm').show();
+        });
+
         // Add new row
         //make username required
         $('.required').editable('option', 'validate', function(v) {

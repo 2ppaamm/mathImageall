@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -39,13 +40,21 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($image, $type, $primary_id)
+    public function store($image, $type, $primary_id, $current_link)
     {
-        $image_loc = '/allgifted-images/'.$type.'/'.$primary_id.'.'.$image->getClientOriginalExtension();
-        File::exists(public_path($image_loc)) ? File::delete(public_path($image_loc)):null;
-        //resize here
-        Image::make($image)->fit(500, 300)->save(public_path($image_loc));
-        return $image_loc;
+        $image_link = array_key_exists($image, Input::all()) ?
+            Request::file($image) != '' ? '/allgifted-images/'.$type.'/'.$primary_id.'.'.Input::file($image)->getClientOriginalExtension():null
+            : $current_link;
+//        $question['image_question'] = array_key_exists('image_question', Input::all()) ?
+ //           Request::file('image_question')==''? null
+  //              :$imageController->store(Input::file('image_question'), 'question', $question['id'])
+   //         :$question['image_question'];
+
+//        $image_loc = '/allgifted-images/'.$type.'/'.$primary_id.'.'.Input::file($image)->getClientOriginalExtension();
+        array_key_exists($image, Input::all()) ? File::exists(public_path($image_link)) ? File::delete(public_path($image_link)):null:null;
+        Input::file($image) ? Image::make(Input::file($image))->fit(500, 300)->save(public_path($image_link)):null;
+//        dd(Input::file($image));
+        return $image_link;
     }
 
     /**

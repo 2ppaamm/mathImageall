@@ -111,17 +111,24 @@ class QuestionController extends Controller
             }
         }
         else {
+            $question->fill(Input::all());
         // Handle Images
 //            dd(Request::file('image_question'));
+            $question['image_question']=$imageController->store('image_question','question',$question->id, $question['image_question'] );
+ //           $question['image_question'] = array_key_exists('image_question', Input::all()) ?
+  //              Request::file('image_question')==''? null
+   //                 :$imageController->store(Input::file('image_question'), 'question', $question['id'])
+    //            :$question['image_question'];
             for ($i = 1; $i<5; $i++) {
                 $image_field = 'answer'.$i.'_image';
+                $question[$image_field]=$imageController->store($image_field,'answer'.$i,$question->id, $question[$image_field] );
+//                dd($question);
 
-                $question[$image_field] = Input::file($image_field) ?
-                    $imageController->store(Input::file($image_field), 'answer'.$i, $question['id'])
-                    :$question[$image_field];
-                $question->update();
+//                $question[$image_field] = Input::file($image_field) ?
+  //                  $imageController->store(Input::file($image_field), 'answer'.$i, $question['id'])
+    //                :$question[$image_field];
             }
-
+            $question->update();
             flash('Question '.$question->id.' has been updated. This is how your question will look like:');
             return redirect('questions/'.$question->id);
         }

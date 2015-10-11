@@ -15,12 +15,12 @@
     <div class="col-md-12">
         <h3>Click on the right answer:</h3>
         <div class="row">
-            @include('questions._showanswer', ['answer'=>'answer1_image', 'number'=>'answer1'])
-            @include('questions._showanswer', ['answer'=>'answer2_image', 'number'=>'answer2'])
-            @include('questions._showanswer', ['answer'=>'answer3_image', 'number'=>'answer3'])
-            @include('questions._showanswer', ['answer'=>'answer4_image', 'number'=>'answer4'])
+            @for ($i = 1; $i < 5; $i++)
+                @include('questions._showanswer', ['answer'=>'answer'.$i.'_image', 'number'=>'answer'.$i])
+            @endfor
         </div>
     </div>
+    <!-- Buttons below for managing question -->
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
             <a href="/questions/{{$question->id}}/edit"><button class="btn-lg btn btn-primary">Modify Question</button></a>
