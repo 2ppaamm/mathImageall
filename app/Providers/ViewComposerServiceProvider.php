@@ -26,7 +26,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         view()->composer(['questions._questionform'], function($view){
             $view->with(['tracks'=> Track::lists('track','id'),
                 'levels' => Level ::lists('description', 'id'),
-                'difficulties' => Difficulty::lists('description', 'id'),
+                'difficulties' => Difficulty::lists('difficulty', 'id'),
                 'user' => Auth::user()
             ]);
         });
