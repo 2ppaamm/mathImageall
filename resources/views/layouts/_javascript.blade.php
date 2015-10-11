@@ -88,3 +88,11 @@
             return c;
         });
     </script>
+
+    <script>
+        $('.file-remove').click(function(){
+            var file_input_id =$(this).data('file');
+            $('#'+file_input_id).val('');
+            $('#'+file_input_id+'_link').attr('src',"/js/placeholder-image.png");
+        })
+    </script>

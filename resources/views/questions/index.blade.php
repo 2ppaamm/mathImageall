@@ -1,14 +1,15 @@
 @extends('layouts._master')
 @section('content')
     <h1>Questions</h1>
+    {!! Form::open(['url'=>'questions/create', 'method'=>'GET'])!!}
+    {!! Form::submit('Create New Question',[
+        'id'=> 'add btn',
+        'class'=>"btn-add btn btn-success btn-min"
+    ]) !!}
+    {!! Form::close() !!}
     <hr>
 
     @if (count($questions))
-        <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">List of questions
-                <button id='add-btn' type="button" class="btn-add btn btn-success btn-min"><a href="/questions/create">Add New Question</a></button>
-            </div>
 
             <table class= "table table-striped" id="edit-table">
             <tr>
@@ -23,6 +24,5 @@
                     @include('questions._rowform')
                 @endforeach
             </table>
-        </div>
     @endif
 @stop

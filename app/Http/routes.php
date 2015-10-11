@@ -25,6 +25,7 @@ Route::get('/notices', function() {
 });
 
 Route::resource('questions', 'QuestionController');
+Route::post('questions/{id}', 'QuestionController@update');
 Route::resource('difficulties', 'DifficultyController', ['except' => ['update', 'edit', 'show']]);
 Route::post('difficulties/{id}', 'DifficultyController@update');
 Route::resource('levels', 'LevelController', ['except' => ['update', 'edit', 'show']]);

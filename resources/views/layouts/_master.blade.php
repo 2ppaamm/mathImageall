@@ -12,6 +12,9 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bootstrap3-editable/css/bootstrap-editable.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+
 </head>
 <body>
     @include('layouts._nav')
@@ -28,6 +31,8 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/bootstrap3-editable/js/bootstrap-editable.js"></script>
     <script src="/js/math.js"></script>
+    <!-- Latest compiled and minified Jasny JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 
 @include('layouts._javascript')
 

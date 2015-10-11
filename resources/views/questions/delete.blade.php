@@ -1,7 +1,4 @@
 <!-- Delete Button trigger modal -->
-<button type="button" class="btn btn-danger col-md-4" data-toggle="modal" data-target="#myModal">
-    Delete Question
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class Question extends Model
 {
     protected $hidden = ['user_id'];
-    protected $fillable = ['track_id', 'level_id', 'difficulty_id','question',
+    protected $fillable = ['track_id', 'level_id', 'difficulty_id','question', 'status_id',
         'answer1', 'answer2', 'answer3', 'answer4', 'correct_answer', 'source', 'question_image'
         ,'answer1_image','answer2_image','answer3_image','answer4_image'];
 

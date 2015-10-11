@@ -28,16 +28,8 @@
     'rows' => '8'
     ]) !!}
 </div>
-<div class="col-md-4 thumbnail">
-    <!-- Question Image form input -->
-    <div class="form-group">
-        {!! Form::label('Question Image', 'Question Image:') !!}
-        {!! Form::file('image_question',[
-            'class' => 'form-control fileinput-preview',
-            'id' => 'question_image',
-        ]) !!}
-    </div>
-
+<div class="form-group col-md-4 thumbnail">
+    @include('layouts._imageForm', ['image_name'=>'image_question', 'image_link'=>$image_link])
 </div>
 <!--  form input for answers -->
 @for ($i = 1; $i < 5; $i++)
@@ -53,8 +45,10 @@
             'rows' => '2'
             ]) !!}
             <div class="form-group">
-                Add an image:
-                {!! Form::file('answer'.$i.'_image',['class' => 'form-control fileinput-preview','id' => 'answer1_image']) !!}
+                <p style="display: none">{{ $answer_link = 'answer'.$i.'_link' }}</p>
+                @include('layouts._imageForm', ['image_name'=>'answer'.$i.'_image',
+                'image_link'=>$$answer_link
+                ])
             </div>
     </div>
 @endfor
