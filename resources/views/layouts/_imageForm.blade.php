@@ -1,6 +1,6 @@
     <div class="fileinput fileinput-new" data-provides="fileinput">
         <div class="fileinput-new thumbnail" style="width: 15em; height: 12em;">
-            <img data-src= {{$image_link}} src={{$image_link}} alt={{$image_name}} id={{$image_name}}_link>
+            <img data-src= {{$image_link}} src={{$image_link}} alt={{$image_name}} id={{$image_name}}>
         </div>
         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 350px; max-height: 250px;"></div>
         <div>

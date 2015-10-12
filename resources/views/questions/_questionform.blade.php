@@ -1,5 +1,3 @@
-<!--  form input -->
-
 <!-- Track form input track-->
 <div class="form-group  col-md-4">
     {!! Form::label('track', 'Topic Track:') !!}

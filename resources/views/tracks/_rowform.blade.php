@@ -1,9 +1,12 @@
 <tr>
-    @if ($track->image != null)
-        <td><img src={{ $track->image }} alt={{$track->track}}\></td>
-    @else
-        <td>{{$track->name}}</td>
-    @endif
+    <td class = "thumbnail" style="width: 15em; height: 12em;">
+        @if ($track->image != null)
+            <img src={{ $track->image }} alt={{$track->track}}\>
+        @else
+            @include('layouts._imageForm', ['image_name'=>'image', 'image_link'=>"/js/placeholder-image.png"])
+        @endif
+    </td>
+
     <td><a href="#" name="track" class='edit' data-type="text" data-pk={{$track->id}} id='track' data-url="/tracks/{{$track->id}}" data-title="Enter new track name">{{$track->track}}</a></td>
     <td><a href="#" class='edit' data-type="textarea" data-pk={{$track->id}} id='description' data-url="/tracks/{{$track->id}}" data-title="Enter new track description">{{$track->description}}</a></td>
     <td><a href="#" class='edit' data-type="text" data-pk={{$track->id}} id='lowest_maxile_level' data-url="/tracks/{{$track->id}}" data-title="Enter lowest maxile level">{{ $track->lowest_maxile_level }}</a></td>
