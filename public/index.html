@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="mathQuiz">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+
+    <ion-pane id="mathQuiz">
+      <ion-subheader class="subheader subheader-dark">
+        <h1 class="">All Gifted Adaptive Test <span>Math</span></h1>
+      </ion-subheader>
+      <ion-content class="morePadding has-header has-subheader" ng-controller='QuizController'>
+        <div class="progress">
+          <div class="
+            {{($index === activeQuestion) ? 'on':'off'}}
+            {{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered'}} 
+            {{ (myQuestion.correctness === 'correct') ? 'correct' : 'incorrect'}}"
+            ng-repeat="myQuestion in myQuestions"></div>
+        </div>
+        <div class="intro {{ (activeQuestion >-1) ? 'inactive' : 'active' }}">
+          <h2>Welcome</h2>
+          <p>Click begin when you are ready to start.</p>
+          <button class="button button-large button-energized" ng-click="activeQuestion = 0">Begin</button>
+        </div>
+
+    <!-- Question -->
+        <div class="question
+            {{ $index === activeQuestion ? 'active':'inactive'}} {{ myQuestion.questionState === 'answered' ? 'answered':'unanswered'}}" ng-repeat="myQuestion in myQuestions">
+          <p class="txt">
+            {{myQuestion.question}}
+          </p>
+          <button class="ans button button-large button-outline button-energized"
+            ng-class="{
+              image:Answer.image,
+              selected: isSelected($parent.$index, $index),
+              correct: isCorrect($parent.$index, $index)
+            }" 
+            ng-style="{ 'background-image':'url({{Answer.image}})'}"
+            ng-repeat="Answer in myQuestions[$index].answers"
+            ng-click="selectAnswer($parent.$index, $index)">{{ Answer.text }}
+          </button>
+          <!-- Feedback -->
+          <div class="feedback">
+            <p ng-show="myQuestion.correctness === 'correct'">You are <strong>correct</strong>!</p>
+            <p ng-show="myQuestion.correctness === 'incorrect'">Oops! That is <strong>not correct.</strong></p>
+            <div class="proceed">
+              <button class="button button-large button-positive" 
+              ng-show="myQuestion.feedback"
+              ng-click="activeQuestionSolution=1"
+              >Solution</button>
+              <button class="button button-large button-energized" ng-click="selectContinue()">Continue</button>
+              <p class="solution" ng-show="activeQuestionSolution">
+                {{myQuestion.feedback}}
+              </p>
+            </div>
+          </div>
+        </div>
+    <!--results -->
+        <div class="results {{(totalQuestions === activeQuestion) ? 'active' : 'inactive'}} padding">
+          <h3>Results</h3>
+          <p>You scored {{percentage}}% by correctly answering {{score}} of the total {{totalQuestions}} questions.</p>
+          <p>Use the links below to challenge your friends.</p>
+          <a href="http://twitter.com/share?text=I scored a {{percentage}}%25 on this Math quiz. Can you beat me at #MathQuiz url='www.all-gifted.com'" class="tweet icon  icon-right ion-social-twitter button button-positive">Tweet</a>
+          <button class="facebook icon icon-left ion-social-facebook button button-positive">Facebook</button>        
+          <a href="mailto:?subject=Try and beat my Math score!&amp;body=I scored a {{percentage}}% on this Math quiz. Beat me at 'www.all-gifted.com'" class="email icon icon-left ion-email button button-energized">Email</a>
+        </div>
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>

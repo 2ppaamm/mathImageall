@@ -33,3 +33,9 @@ Route::post('levels/{id}', 'LevelController@update');
 Route::resource('tracks', 'TrackController',['except' => ['update', 'edit', 'show']]);
 Route::post('tracks/{id}', 'TrackController@update');
 Route::resource('images', 'ImageController', ['only' => ['store']]);
+
+Route::get('/learn', function(){
+   return view('learn.index');
+});
+
+Route::get('/quizdata', 'QuizController@index');
