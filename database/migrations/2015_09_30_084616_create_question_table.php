@@ -32,7 +32,7 @@ class CreateQuestionTable extends Migration
             $table->string('answer3_image')->nullable();
             $table->string('answer4')->nullable();
             $table->string('answer4_image')->nullable();
-            $table->string('correct_answer');
+            $table->integer('correct_answer');
             $table->integer('status_id')->unsigned()->default(1);
             $table->foreign('status_id')->references('id')->on('statuses');
             $table->string('source')->nullable();

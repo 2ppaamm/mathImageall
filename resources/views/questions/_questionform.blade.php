@@ -30,7 +30,7 @@
     @include('layouts._imageForm', ['image_name'=>'image_question', 'image_link'=>$image_link])
 </div>
 <!--  form input for answers -->
-@for ($i = 1; $i < 5; $i++)
+@for ($i = 0; $i < 4; $i++)
     <div class="form-group col-md-3 thumbnail">
         <div class="input-group-addon">
             {!! Form::radio('correct_answer', $i, false) !!}
