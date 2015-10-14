@@ -16,7 +16,16 @@ class QuizController extends Controller
      */
     public function index()
     {
-        return Question::select('question','answer1','answer2','answer3','answer4')->get();
+        $questions=Question::select('question','answer1','answer2','answer3','answer4')->get();
+        $q= null;
+        for ($j = 0; $j<count($questions);$j++){
+            $answers=null;
+            for ($i=0; $i<4; $i++){
+                $answers=array_add($answers, $i,['id'=>$i,'text'=>$questions[$j]['answer'.($i+1)]]);
+            }
+            $q=array_add($q, $j,['question'=>$questions[$j]->question, 'answers'=>$answers]);
+        }
+        return $q;
     }
 
     /**
