@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>All Gifted Adaptive Test</title>
+    <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -19,7 +19,7 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="/js/app.js"></script>
+    <script src="js/app.js"></script>
 </head>
 <body>
 

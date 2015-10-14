@@ -64,6 +64,4 @@ angular.module('mathQuiz', ['ionic'])
             var newMarkup = emailLink + twitterLink;
             return $sce.trustAsHtml(newMarkup);
         }
-
-
     }]);

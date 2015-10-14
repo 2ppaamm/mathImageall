@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->rememberToken();
             $table->boolean('is_admin');
-            $table->integer('maxile_level');
+            $table->integer('maxile_level')->nullable();
             $table->date('date_of_birth');
             $table->dateTime('last_test_date')->nullable();
             $table->dateTime('next_test_date')->nullable();

@@ -72,6 +72,10 @@ class User extends Model implements AuthenticatableContract,
     public function images(){
         return $this->hasMany('App\Image');
     }
+
+    public function reports(){
+        return $this->hasMany('App\Report');
+    }
     // scope: to use ->current()
     public function scopeCurrent($query){
         $query->where('id','=',Auth::user()->id);

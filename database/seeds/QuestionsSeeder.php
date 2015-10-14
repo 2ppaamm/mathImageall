@@ -25,7 +25,7 @@ class QuestionsSeeder extends Seeder
             'answer4' => '25',
             'answer4_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 1,
-            'correct_answer' => 2
+            'correct_answer' => 1
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -43,7 +43,7 @@ class QuestionsSeeder extends Seeder
             'answer4' => '25',
             'answer4_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 2,
-            'correct_answer' => 3
+            'correct_answer' => 2
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -61,7 +61,7 @@ class QuestionsSeeder extends Seeder
             'answer4' => '-5',
             'answer4_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 1,
-            'correct_answer' => 4
+            'correct_answer' => 3
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -79,7 +79,7 @@ class QuestionsSeeder extends Seeder
             'answer4' => '20',
             'answer4_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 2,
-            'correct_answer' => 2
+            'correct_answer' => 1
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -97,7 +97,7 @@ class QuestionsSeeder extends Seeder
             'answer4' => '20',
             'answer4_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 1,
-            'correct_answer' => 1
+            'correct_answer' => 0
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -115,7 +115,7 @@ class QuestionsSeeder extends Seeder
             'answer4' => '28',
             'answer4_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 1,
-            'correct_answer' => 4
+            'correct_answer' => 3
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -133,7 +133,7 @@ class QuestionsSeeder extends Seeder
             'answer4' => '2 m',
             'answer4_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 1,
-            'correct_answer' => 2
+            'correct_answer' => 1
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -151,7 +151,7 @@ class QuestionsSeeder extends Seeder
             'answer4' => '2 m',
             'answer4_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 1,
-            'correct_answer' => 3
+            'correct_answer' => 2
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -169,7 +169,7 @@ class QuestionsSeeder extends Seeder
             'answer4' => '2000 m',
             'answer4_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 2,
-            'correct_answer' => 2
+            'correct_answer' => 1
         ]);
     }
 }
