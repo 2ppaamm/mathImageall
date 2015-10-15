@@ -9,7 +9,7 @@ class Level extends Model
 {
     protected $hidden = ['user_id'];
     protected $fillable = ['level', 'description', 'age', 'lowest_maxile_level','highest_maxile_level',
-        'image', 'status'];
+        'image', 'status_id'];
     //relationship
     public function user() {                        //who created this level
         return $this->belongsTo('App\User');
@@ -21,6 +21,10 @@ class Level extends Model
 
     public function difficulties(){
         return $this->hasMany('App\Difficulty');
+    }
+
+    public function skills(){
+        return $this->hasMany('App\Skills');
     }
 
     // scopes

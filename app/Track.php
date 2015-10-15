@@ -25,6 +25,10 @@ class Track extends Model
         return $this->belongsTo('App\Status');
     }
 
+    public function skills(){
+        return $this->hasMany('App\Skill');
+    }
+
     public function questions(){
         return $this->hasMany('App\Question');
     }

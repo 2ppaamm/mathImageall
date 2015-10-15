@@ -28,6 +28,9 @@ class Question extends Model
     public function difficulty(){
         return $this->belongsTo('App\Difficulty');
     }
+    public function skill() {
+        return $this->belongsTo('App\Skill');
+    }
     public function status() {
         return $this->belongsTo('App\Status');
     }

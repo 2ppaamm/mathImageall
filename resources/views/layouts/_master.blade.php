@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/bootstrap3-editable/css/bootstrap-editable.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
-
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     @include('layouts._nav')
@@ -33,6 +33,7 @@
     <script src="/js/math.js"></script>
     <!-- Latest compiled and minified Jasny JavaScript -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
 @include('layouts._javascript')
 

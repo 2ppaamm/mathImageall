@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             $this->call(TracksSeeder::class);
             $this->call(LevelsSeeder::class);
             $this->call(DifficultySeeder::class);
+            $this->call(SkillSeeder::class);
             $this->call(QuestionsSeeder::class);
         Model::reguard();
     }

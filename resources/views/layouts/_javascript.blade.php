@@ -12,7 +12,37 @@
         });
     </script>
     <script>
+    </script>
+    <script>
         $(document).ready(function() {
+            $('.selection-new').change(function(){
+                $(this).hide();
+                $(this).prev().show();
+                $(this).prev().html($('option:selected',this).text());
+                $(this).prev().attr('data-value',$('option:selected',this).val());
+            });
+            $('.selection').click(function(){
+                $(this).next().show();
+                $(this).hide();
+            });
+            $('.selection-list').change(function() {
+                $.ajax
+                ({
+                    beforeSend: function (request) {
+                            request.setRequestHeader("X-CSRF-TOKEN", $('meta[name="csrf-token"]').attr('content'));
+                    },
+                    url: $(this).data('url'),
+                    data: {"name": $(this).attr('name'), "value": $(this).val(), 'pk':$(this).data('pk')},
+                    type: 'post',
+                    success: function (result) {
+                        var msg = 'Record updated successfully.';
+                        $('.alert-info').html(msg).show();
+                    }
+                });
+                $(this).hide();
+                $(this).prev().show();
+                $(this).prev().html($('option:selected',this).text());
+            })
             $('.edit, .newRow').editable({
                 ajaxOptions: {
                     beforeSend: function (request) {

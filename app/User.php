@@ -76,6 +76,11 @@ class User extends Model implements AuthenticatableContract,
     public function reports(){
         return $this->hasMany('App\Report');
     }
+
+    public function skills(){
+        return $this->hasMany('App\Skill');              //originator of skills
+    }
+
     // scope: to use ->current()
     public function scopeCurrent($query){
         $query->where('id','=',Auth::user()->id);

@@ -29,7 +29,6 @@ class QuestionController extends Controller
     public function index()
     {
         $questions=Question::latest()->with('track')->with('level')->with('difficulty')->with('status')->with('user')->get();
-        dd($questions);
         return view('questions.index', compact('questions'));
     }
 

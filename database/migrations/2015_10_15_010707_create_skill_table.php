@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TestReportTable extends Migration
+class CreateSkillTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,18 +12,18 @@ class TestReportTable extends Migration
      */
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('skills', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->date('date_of_report');
-            $table->integer('track_id')->unsigned();
+            $table->string('skill');
+            $table->string('short_description');
+            $table->string('description');
+            $table->integer('track_id')->unsigned()->default(1);
             $table->foreign('track_id')->references('id')->on('tracks');
-            $table->integer('level_id')->unsigned();
+            $table->integer('level_id')->unsigned()->default(1);
             $table->foreign('level_id')->references('id')->on('levels');
-            $table->integer('difficulty_id')->unsigned();
-            $table->foreign('difficulty_id')->references('id')->on('difficulties');
-            $table->string('report_text');
+            $table->integer('user_id')->unsigned()->default(1);
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('image')->nullable();
             $table->integer('status_id')->unsigned()->default(1);
             $table->foreign('status_id')->references('id')->on('statuses');
             $table->timestamps();
@@ -37,6 +37,6 @@ class TestReportTable extends Migration
      */
     public function down()
     {
-        Schema::drop('reports');
+        Schema::drop('skills');
     }
 }
