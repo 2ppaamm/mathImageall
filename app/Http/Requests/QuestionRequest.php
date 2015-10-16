@@ -24,8 +24,7 @@ class QuestionRequest extends Request
     public function rules()
     {
         return [
-            'track_id'=>'required',
-            'level_id'=> 'required',
+            'skill_id'=> 'required',
             'difficulty_id' =>'required',
             'question' => 'required',//|unique:questions,question',
             'image_question' => 'image|between:50,2000',
