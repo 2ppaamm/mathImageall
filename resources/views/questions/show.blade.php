@@ -15,7 +15,7 @@
     <div class="col-md-12">
         <h3>Click on the right answer:</h3>
         <div class="row">
-            @for ($i = 1; $i < 5; $i++)
+            @for ($i = 0; $i < 4; $i++)
                 @include('questions._showanswer', ['answer'=>'answer'.$i.'_image', 'number'=>'answer'.$i])
             @endfor
         </div>

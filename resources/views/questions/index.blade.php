@@ -15,6 +15,7 @@
             <tr>
                     <th>Image</th>
                     <th>Track</th>
+                    <th>Skill</th>
                     <th>Level</th>
                     <th>Question</th>
                     <th>Created by</th>

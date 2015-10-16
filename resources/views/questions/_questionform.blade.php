@@ -1,19 +1,13 @@
-<!-- Track form input track-->
-<div class="form-group  col-md-4">
-    {!! Form::label('track', 'Topic Track:') !!}
-    {!! Form::select('track_id', $tracks, null,['class'=>'form-control', 'value'=>'Select Track']) !!}
-</div>
 <!-- end: Select input from database for Track -->
-
-<!-- Level form input level-->
-<div class="form-group col-md-4">
-    {!! Form::label('level_id', 'Level:') !!}
-    {!! Form::select('level_id', $levels, null,['class'=>'form-control']) !!}
+<!-- Level form input skill-->
+<div class="form-group col-md-9">
+    {!! Form::label('skill_id', 'Skill:') !!}
+    {!! Form::select('level_id', $skills, null,['class'=>'form-control']) !!}
 </div>
 <!-- end: Select input from database for Track -->
 
 <!-- Level form input difficulty-->
-<div class="form-group col-md-4">
+<div class="form-group col-md-3">
     {!! Form::label('difficulty_id', 'Difficulty:') !!}
     {!! Form::select('difficulty_id', $difficulties, null,['class'=>'form-control']) !!}
 </div>

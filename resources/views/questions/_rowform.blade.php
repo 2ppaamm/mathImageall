@@ -9,6 +9,7 @@
     </div>
     </td>
     <td><a href="#" data-pk={{$question->id}} name="track">{{$question->track['track']}}</a></td>
+    <td><a href="#" data-pk={{$question->id}} name="skill">{{$question->skill['skill']}}</a></td>
     <td><a href="#" data-pk={{$question->id}} name="level">{{$question->level['level']}}</a></td>
     <td><a href="#" class='edit' data-type="textarea" data-pk={{$question->id}} id='question' data-url="/questions/{{$question->id}}" data-title="Enter question text">{{ $question->question }}</a></td>
     <td>{{ $question->user->firstname }}</td>
