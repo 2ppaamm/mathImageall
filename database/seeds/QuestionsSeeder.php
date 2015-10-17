@@ -24,7 +24,7 @@ class QuestionsSeeder extends Seeder
             'answer0' => '25',
             'answer0_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 1,
-            'correct_answer' => 1
+            'correct_answer' => 2
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -41,7 +41,7 @@ class QuestionsSeeder extends Seeder
             'answer0' => '25',
             'answer0_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 2,
-            'correct_answer' => 2
+            'correct_answer' => 3
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -58,7 +58,7 @@ class QuestionsSeeder extends Seeder
             'answer0' => '-5',
             'answer0_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 1,
-            'correct_answer' => 3
+            'correct_answer' => 0
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -74,7 +74,7 @@ class QuestionsSeeder extends Seeder
             'answer0' => '20',
             'answer0_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 2,
-            'correct_answer' => 1
+            'correct_answer' => 2
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -90,7 +90,7 @@ class QuestionsSeeder extends Seeder
             'answer0' => '20',
             'answer0_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 1,
-            'correct_answer' => 0
+            'correct_answer' => 1
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -107,7 +107,7 @@ class QuestionsSeeder extends Seeder
             'answer0' => '28',
             'answer0_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 1,
-            'correct_answer' => 3
+            'correct_answer' => 0
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -124,7 +124,7 @@ class QuestionsSeeder extends Seeder
             'answer0' => '2 m',
             'answer0_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 1,
-            'correct_answer' => 1
+            'correct_answer' => 2
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -141,7 +141,7 @@ class QuestionsSeeder extends Seeder
             'answer0' => '2 m',
             'answer0_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 1,
-            'correct_answer' => 2
+            'correct_answer' => 3
         ]);
         Question::create ([
             'id' => $faker->uuid,
@@ -149,16 +149,16 @@ class QuestionsSeeder extends Seeder
             'difficulty_id' =>3,
             'question' => 'How many meters is 200 km?',
             'image_question' => $faker->imageUrl(500, 300, 'cats'),
+            'answer0' => '2000 m',
+            'answer0_image' => $faker->imageUrl(250, 150, 'nature'),
             'answer1' => '24000 m',
             'answer1_image' => $faker->imageUrl(500, 300, 'food'),
             'answer2' => '200000 m',
             'answer2_image' => $faker->imageUrl(250, 150, 'food'),
             'answer3' => '25000 m',
             'answer3_image' => $faker->imageUrl(250, 150, 'people'),
-            'answer0' => '2000 m',
-            'answer0_image' => $faker->imageUrl(250, 150, 'nature'),
             'user_id' => 2,
-            'correct_answer' => 1
+            'correct_answer' => 2
         ]);
     }
 }

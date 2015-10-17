@@ -22,8 +22,8 @@ class QuizController extends Controller
         for ($j = 0; $j<count($questions);$j++){
             $answers=null; $images=null;
             for ($i=0; $i<4; $i++){
-                $answers=array_add($answers, $i,['id'=>$i,'text'=>$questions[$j]['answer'.($i+1)],
-                'image'=>$questions[$j]['answer'.($i+1).'_image']]);
+                $answers=array_add($answers, $i,['id'=>$i,'text'=>$questions[$j]['answer'.$i],
+                'image'=>$questions[$j]['answer'.$i.'_image']]);
             }
             $q=array_add($q, $j,['question'=>$questions[$j]->question, 'answers'=>$answers,'correct'=>$questions[$j]->correct_answer]);
         }
