@@ -44,4 +44,8 @@ Route::get('/learn', function(){
    return view('learn.index');
 });
 
+Route::get('/quiz', function(){
+   return view('quiz.index');
+});
+
 Route::get('/quizdata', 'QuizController@index');

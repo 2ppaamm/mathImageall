@@ -11,8 +11,6 @@ class QuestionsSeeder extends Seeder
         $faker = Faker::create();
         Question::create ([
             'id' => $faker->uuid,
-            'track_id' => 1,
-            'level_id'=> 7,
             'skill_id'=>2,
             'difficulty_id' =>1,
             'question' => 'x + 10 = 5. What is x?',
@@ -30,8 +28,6 @@ class QuestionsSeeder extends Seeder
         ]);
         Question::create ([
             'id' => $faker->uuid,
-            'track_id' => 1,
-            'level_id'=> 7,
             'skill_id'=>2,
             'difficulty_id' =>2,
             'question' => 'y + 10 = 5. What is y?',
@@ -49,8 +45,6 @@ class QuestionsSeeder extends Seeder
         ]);
         Question::create ([
             'id' => $faker->uuid,
-            'track_id' => 1,
-            'level_id'=> 7,
             'skill_id'=>3,
             'difficulty_id' =>3,
             'question' => 'z + 10 = 5. What is z?',
@@ -68,8 +62,6 @@ class QuestionsSeeder extends Seeder
         ]);
         Question::create ([
             'id' => $faker->uuid,
-            'track_id' => 2,
-            'level_id'=> 7,
             'difficulty_id' =>1,
             'question' => 'The base and height of a triangle is 9cm and 4 cm respectively. What is the area?',
             'image_question' => $faker->imageUrl(400, 300, 'cats'),
@@ -86,8 +78,6 @@ class QuestionsSeeder extends Seeder
         ]);
         Question::create ([
             'id' => $faker->uuid,
-            'track_id' => 2,
-            'level_id'=> 7,
             'difficulty_id' =>2,
             'question' => 'The base and height of a triangle is 9cm and 8 cm respectively. What is the area?',
             'image_question' => $faker->imageUrl(400, 300, 'cats'),
@@ -104,8 +94,6 @@ class QuestionsSeeder extends Seeder
         ]);
         Question::create ([
             'id' => $faker->uuid,
-            'track_id' => 2,
-            'level_id'=> 7,
             'skill_id'=>3,
             'difficulty_id' =>3,
             'question' => 'The base and height of a triangle is 14 cm and 4 cm respectively. What is the area?',
@@ -123,8 +111,6 @@ class QuestionsSeeder extends Seeder
         ]);
         Question::create ([
             'id' => $faker->uuid,
-            'track_id' => 3,
-            'level_id'=> 7,
             'skill_id'=>1,
             'difficulty_id' =>1,
             'question' => 'How many meters is 2 km?',
@@ -142,8 +128,6 @@ class QuestionsSeeder extends Seeder
         ]);
         Question::create ([
             'id' => $faker->uuid,
-            'track_id' => 3,
-            'level_id'=> 7,
             'skill_id'=>2,
             'difficulty_id' =>2,
             'question' => 'How many meters is 4 km?',
@@ -161,8 +145,6 @@ class QuestionsSeeder extends Seeder
         ]);
         Question::create ([
             'id' => $faker->uuid,
-            'track_id' => 3,
-            'level_id'=> 7,
             'skill_id'=>1,
             'difficulty_id' =>3,
             'question' => 'How many meters is 200 km?',

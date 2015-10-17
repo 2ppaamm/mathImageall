@@ -14,10 +14,6 @@ class CreateQuestionTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->string('id',36)->primary();
-            $table->integer('track_id')->unsigned()->nullable();
-            $table->foreign('track_id')->references('id')->on('tracks')->onDelete('set null');
-            $table->integer('level_id')->unsigned()->nullable();
-            $table->foreign('level_id')->references('id')->on('levels')->onDelete('set null');
             $table->integer('skill_id')->unsigned()->nullable();
             $table->foreign('skill_id')->references('id')->on('skills')->onDelete('set null');
             $table->integer('difficulty_id')->unsigned()->nullable();

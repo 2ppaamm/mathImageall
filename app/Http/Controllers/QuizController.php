@@ -16,8 +16,8 @@ class QuizController extends Controller
      */
     public function index()
     {
-        $questions=Question::select('question','answer1','answer2','answer3','answer4','correct_answer',
-            'answer1_image','answer2_image','answer3_image', 'answer4_image')->get();
+        $questions=Question::select('question','answer0','answer1','answer2','answer3','correct_answer',
+            'answer0_image','answer1_image','answer2_image', 'answer3_image')->get();
         $q= null;
         for ($j = 0; $j<count($questions);$j++){
             $answers=null; $images=null;

@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Adaptive Math Test</title>
-    <link rel="stylesheet" type="text/css" href="css/learn.css">
+    <link rel="stylesheet" type="text/css" href="css/quiz.css">
 </head>
 <body>
 <div id="mathQuiz" ng-controller="QuizController">
@@ -50,7 +50,7 @@
     </div>
 </div>
 <script type="text/javascript" src="js/angular.min.js"></script>
-<script type="text/javascript" src='js/learn.js'></script>
+<script type="text/javascript" src='js/quiz.js'></script>
 
 </body>
 </html>

@@ -42,12 +42,9 @@ class ImageController extends Controller
      */
     public function store($image, $type, $primary_id, $current_link)
     {
-//        dd(Input::file($type)!='');
-//        dd($type);
         $image_link = array_key_exists($type, Input::all()) ?
             Input::file($type) != '' ? '/allgifted-images/'.$type.'/'.$primary_id.'.'.$image->getClientOriginalExtension(): $current_link
             : $current_link;
-//        dd($image_link);
         array_key_exists($type, Input::all()) ? File::exists(public_path($image_link)) ? File::delete(public_path($image_link)):null:null;
         $image ? Image::make($image)->fit(500, 300)->save(public_path($image_link)):null;
         return $image_link;

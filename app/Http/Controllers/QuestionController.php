@@ -114,25 +114,10 @@ class QuestionController extends Controller
         }
         else {
             $question->fill(Input::all());
-//            dd($question);
-        // Handle Images
-//            dd(Input::all());
             $question['image_question'] = $imageController->store(Input::file('image_question'), 'image_question', $question['id'], $question['image_question']);
-//            dd($question);
-//            $question['image_question']=$imageController->store('image_question','question',$question->id, $question['image_question'] );
- //           $question['image_question'] = array_key_exists('image_question', Input::all()) ?
-  //              Request::file('image_question')==''? null
-   //                 :$imageController->store(Input::file('image_question'), 'question', $question['id'])
-    //            :$question['image_question'];
             for ($i = 0; $i<4; $i++) {
                 $image_field = 'answer'.$i.'_image';
-//                dd($image_field);
                 $question[$image_field] = $imageController->store(Input::file($image_field), 'answer'.$i.'_image', $question['id'], $question[$image_field]);
-//                dd($question);
-
-//                $question[$image_field] = Input::file($image_field) ?
-  //                  $imageController->store(Input::file($image_field), 'answer'.$i, $question['id'])
-    //                :$question[$image_field];
             }
             $question->update();
             flash('Question '.$question->id.' has been updated. This is how your question will look like:');
