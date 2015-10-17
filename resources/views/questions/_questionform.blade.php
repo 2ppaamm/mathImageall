@@ -2,7 +2,7 @@
 <!-- Level form input skill-->
 <div class="form-group col-md-9">
     {!! Form::label('skill_id', 'Skill:') !!}
-    {!! Form::select('level_id', $skills, null,['class'=>'form-control']) !!}
+    {!! Form::select('skill_id', $skills, null,['class'=>'form-control']) !!}
 </div>
 <!-- end: Select input from database for Track -->
 

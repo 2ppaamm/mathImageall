@@ -54,12 +54,14 @@ class QuestionController extends Controller
         $uuid = Uuid::generate(4);
         $question['id'] = $uuid;
         $question['source']= $request->source != null ? $request->source : Auth::user()->name;
-        $question['image_question'] = $request->image_question!=null ? $imageController->store(Input::file('image_question'), 'question', $question['id']):null;
 
+        $question['image_question'] = $request->image_question!=null ?
+            $imageController->store(Input::file('image_question'), 'image_question', $question['id'], null)
+            :null;
         for ($i = 0; $i<4; $i++) {
             $image_field = 'answer'.$i.'_image';
             $question[$image_field] = $request[$image_field]!=null ?
-                $imageController->store($request->file($image_field), 'answer'.$i, $question['id']):null;
+                $imageController->store($request->file($image_field), 'answer'.$i.'_image', $question['id'],null):null;
         }
         Auth::user()->questions()->save($question);
         flash('Question created.This is how your question will look like:');
@@ -112,16 +114,20 @@ class QuestionController extends Controller
         }
         else {
             $question->fill(Input::all());
+//            dd($question);
         // Handle Images
-//            dd(Request::file('image_question'));
-            $question['image_question']=$imageController->store('image_question','question',$question->id, $question['image_question'] );
+//            dd(Input::all());
+            $question['image_question'] = $imageController->store(Input::file('image_question'), 'image_question', $question['id'], $question['image_question']);
+//            dd($question);
+//            $question['image_question']=$imageController->store('image_question','question',$question->id, $question['image_question'] );
  //           $question['image_question'] = array_key_exists('image_question', Input::all()) ?
   //              Request::file('image_question')==''? null
    //                 :$imageController->store(Input::file('image_question'), 'question', $question['id'])
     //            :$question['image_question'];
-            for ($i = 1; $i<5; $i++) {
+            for ($i = 0; $i<4; $i++) {
                 $image_field = 'answer'.$i.'_image';
-                $question[$image_field]=$imageController->store($image_field,'answer'.$i,$question->id, $question[$image_field] );
+//                dd($image_field);
+                $question[$image_field] = $imageController->store(Input::file($image_field), 'answer'.$i.'_image', $question['id'], $question[$image_field]);
 //                dd($question);
 
 //                $question[$image_field] = Input::file($image_field) ?
