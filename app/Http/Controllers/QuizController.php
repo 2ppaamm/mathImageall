@@ -27,7 +27,6 @@ class QuizController extends Controller
             }
             $q=array_add($q, $j,['question'=>$questions[$j]->question, 'answers'=>$answers,'correct'=>$questions[$j]->correct_answer]);
         }
-        dd($q);
         return $q;
     }
 
