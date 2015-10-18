@@ -17,7 +17,7 @@ class SkillSeeder extends Seeder
             'short_description' => 'Numbers up to 100',
             'description'=> 'Whatever you want to describe numbers la',
             'track_id' =>1,
-            'level_id' =>2,
+            'level_id' =>6,
             'user_id' =>2,
             'status_id'=>3
         ]);
@@ -26,7 +26,7 @@ class SkillSeeder extends Seeder
             'short_description' => 'Fraction of a whole',
             'description'=> 'interpretation of fraction as a part of a whole, reading and writing fractions, comparing and ordering',
             'track_id' =>1,
-            'level_id' =>3,
+            'level_id' =>6,
             'user_id' =>2,
             'status_id'=>3
         ]);

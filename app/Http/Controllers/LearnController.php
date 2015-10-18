@@ -2,35 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Test;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Question;
-use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
-use App\Level;
-use App\Skill;
 
-class QuizController extends Controller
+class LearnController extends Controller
 {
     /**
-     * Format and sends a list of question to be displayed for a quiz.
+     * Display a listing of the resource.
      *
-     * @return $q list of questions
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        if ($current_test=Auth::user()->tests()->current()->first()) {
-            $questions = $current_test->questions()->quiz()->get();
-            $test_id = $current_test->id;
-        } else {
-            $questions = Question::quiz()->maiden()->get();
-            $current_test = Auth::user()->tests()->create([]);
-            $current_test->questions()->sync($questions);
-            $test_id = $current_test->id;
-        }
-        $q= [];
+        $questions=Question::select('question','answer0','answer1','answer2','answer3','correct_answer',
+            'answer0_image','answer1_image','answer2_image', 'answer3_image')->get();
+        $q= null;
         for ($j = 0; $j<count($questions);$j++){
             $answers=null; $images=null;
             for ($i=0; $i<4; $i++){
@@ -39,7 +27,6 @@ class QuizController extends Controller
             }
             $q=array_add($q, $j,['question'=>$questions[$j]->question, 'answers'=>$answers,'correct'=>$questions[$j]->correct_answer]);
         }
-        $q=array_add($q, 'test_id',$test_id);
         return $q;
     }
 
@@ -61,7 +48,7 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**

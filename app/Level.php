@@ -24,7 +24,7 @@ class Level extends Model
     }
 
     public function skills(){
-        return $this->hasMany('App\Skills');
+        return $this->hasMany('App\Skill');
     }
 
     // scopes

@@ -11,13 +11,25 @@ class UsersSeeder extends Seeder
     {
         $faker = Faker::create();
         User::create ([
+            'name' =>'system',
+            'firstName' =>'System',
+            'lastName' => 'Administrator',
+            'email'=> 'info.all-gifted@gmail.com',
+            'password' => Hash::make('123456'),
+            'is_admin' => TRUE,
+            'date_of_birth' => '2002-02-20',
+            'last_test_date' => $faker->dateTimeThisYear,
+            'next_test_date' => $faker->dateTimeThisYear,
+            'maxile_level' => 0
+        ]);
+        User::create ([
             'name' =>'pamela',
             'firstName' =>'Pamela',
             'lastName' => 'Lim',
             'email'=> 'pamelaliusm@gmail.com',
             'password' => Hash::make('123456'),
             'is_admin' => TRUE,
-            'date_of_birth' => '1966-02-20',
+            'date_of_birth' => '2004-02-20',
             'last_test_date' => $faker->dateTimeThisYear,
             'next_test_date' => $faker->dateTimeThisYear,
             'maxile_level' => 200
@@ -36,7 +48,7 @@ class UsersSeeder extends Seeder
             'maxile_level' => 500
         ]);
 
-        for ($i =0; $i<6; $i++){
+        for ($i =0; $i<14; $i++){
             User::create([
                 'name'=>$faker->firstName,
                 'firstname' => $faker->firstName,
@@ -44,7 +56,7 @@ class UsersSeeder extends Seeder
                 'email'=> $faker->email,
                 'password' => Hash::make('password'),
                 'is_admin' => FALSE,
-                'date_of_birth' => $faker->dateTimeThisCentury,
+                'date_of_birth' => $faker->dateTimeBetween($startDate='-19 years', $endDate='-6 years'),
                 'last_test_date' => $faker->dateTimeThisYear,
                 'next_test_date' => $faker->dateTimeThisYear,
                 'maxile_level' => $faker->randomNumber(3)

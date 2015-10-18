@@ -14,22 +14,9 @@
 
         $scope.selectAnswer = function(qIndex, aIndex){
             var questionState = $scope.myQuestions[qIndex].questionState;
-
-            if (questionState != 'answered'){
-                $scope.myQuestions[qIndex].selectedAnswer=aIndex;
-                var correctAnswer = $scope.myQuestions[qIndex].correct;
-
-                $scope.myQuestions[qIndex].correctAnswer = correctAnswer;
-
-                if (aIndex === correctAnswer){
-                    $scope.myQuestions[qIndex].correctness = 'correct';
-                    $scope.score += 1;
-                } else {
-                    $scope.myQuestions[qIndex].correctness = 'incorrect';
-                }
-                $scope.myQuestions[qIndex].questionState = 'answered';
-            }
-            $scope.percentage = (($scope.score / $scope.totalQuestions)*100).toFixed(1);
+            // send answer, questionid and userid to server
+            $http.post('/quiz/'+$scope.myQuestions.test_id,{'question':qIndex,'answer':aIndex});
+            $scope.myQuestions[qIndex].questionState = 'answered';
         }
         $scope.isSelected = function(qIndex,aIndex){
             return $scope.myQuestions[qIndex].selectedAnswer === aIndex;

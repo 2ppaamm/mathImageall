@@ -3,12 +3,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Adaptive Math Test</title>
+    <title>Adaptive Learning Math</title>
     <link rel="stylesheet" type="text/css" href="css/learn.css">
 </head>
 <body>
 <div id="mathQuiz" ng-controller="QuizController">
-    <h1>All Gifted Adaptive Test<span>Math</span></h1>
+    <h1>All Gifted Adaptive Learning<span>Math</span></h1>
     <div class="progress">
         <div class="
 				{{($index === activeQuestion) ? 'on':'off'}}

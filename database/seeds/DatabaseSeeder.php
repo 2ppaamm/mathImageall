@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             $this->call(LevelsSeeder::class);
             $this->call(DifficultySeeder::class);
             $this->call(SkillSeeder::class);
-            $this->call(QuestionsSeeder::class);
+            $this->call(QuestionSeeder::class);
+            $this->call(TestSeeder::class);
         Model::reguard();
     }
 }

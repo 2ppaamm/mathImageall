@@ -47,5 +47,8 @@ Route::get('/learn', function(){
 Route::get('/quiz', function(){
    return view('quiz.index');
 });
+Route::post('/quiz/{id}', 'QuizController@update');
 
 Route::get('/quizdata', 'QuizController@index');
+// learn data
+Route::get('/learndata', 'LearnController@index');

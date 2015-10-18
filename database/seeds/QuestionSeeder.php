@@ -1,11 +1,16 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Question;
 use Faker\Factory as Faker;
+use App\Question;
 
-class QuestionsSeeder extends Seeder
+class QuestionSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
         $faker = Faker::create();
