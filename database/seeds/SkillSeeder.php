@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Skill;
+use Faker\Factory as Faker;
 
 class SkillSeeder extends Seeder
 {
@@ -12,7 +13,20 @@ class SkillSeeder extends Seeder
      */
     public function run()
     {
-        Skill::create ([
+        $faker = Faker::create();
+        for ($i =0; $i<50; $i++) {
+            Skill::create ([
+                'skill' =>$faker->word(3),
+                'short_description' => $faker->sentence(2),
+                'description'=> $faker->sentence(6),
+                'track_id' =>$faker->numberBetween(1,9),
+                'level_id' =>$faker->numberBetween(1,14),
+                'user_id' =>2,
+                'status_id'=>3
+            ]);
+
+        }
+            Skill::create ([
             'skill' =>'Numbers up to 100',
             'short_description' => 'Numbers up to 100',
             'description'=> 'Whatever you want to describe numbers la',
@@ -26,7 +40,7 @@ class SkillSeeder extends Seeder
             'short_description' => 'Fraction of a whole',
             'description'=> 'interpretation of fraction as a part of a whole, reading and writing fractions, comparing and ordering',
             'track_id' =>1,
-            'level_id' =>6,
+            'level_id' =>7,
             'user_id' =>2,
             'status_id'=>3
         ]);
@@ -35,7 +49,7 @@ class SkillSeeder extends Seeder
             'short_description' => 'Length mass and volume',
             'description'=> 'length in km, vol in ml, compound units, conversion from km to m, m to centimeters, kg to g, litres to ml',
             'track_id' =>2,
-            'level_id' =>4,
+            'level_id' =>8,
             'user_id' =>2,
             'status_id'=>3
         ]);

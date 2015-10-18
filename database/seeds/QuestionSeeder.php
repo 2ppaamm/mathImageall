@@ -14,7 +14,26 @@ class QuestionSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        Question::create ([
+        for ($i =0; $i<100; $i++) {
+            Question::create ([
+                'id' => $faker->uuid,
+                'skill_id'=>$faker->numberBetween(1,53),
+                'difficulty_id' =>$faker->numberBetween(1,3),
+                'question' => $faker->sentence(2),
+                'image_question' => $faker->imageUrl(500, 300, 'cats'),
+                'answer1' => '35',
+                'answer1_image' => $faker->imageUrl(250, 150, 'food'),
+                'answer2' => '-5',
+                'answer2_image' => $faker->imageUrl(250, 150, 'food'),
+                'answer3' => '15',
+                'answer3_image' => $faker->imageUrl(250, 150, 'people'),
+                'answer0' => '25',
+                'answer0_image' => $faker->imageUrl(250, 150, 'nature'),
+                'user_id' => $faker->numberBetween(1,15),
+                'correct_answer' => 2
+            ]);
+        }
+            Question::create ([
             'id' => $faker->uuid,
             'skill_id'=>2,
             'difficulty_id' =>1,
