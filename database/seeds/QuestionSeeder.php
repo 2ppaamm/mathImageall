@@ -165,5 +165,22 @@ class QuestionSeeder extends Seeder
             'user_id' => 2,
             'correct_answer' => 2
         ]);
+        Question::create ([
+            'id' => $faker->uuid,
+            'skill_id'=>8,
+            'difficulty_id' =>3,
+            'question' => 'How many meters is 200 km?',
+            'image_question' => $faker->imageUrl(500, 300, 'cats'),
+            'answer0' => '2000 m',
+            'answer0_image' => $faker->imageUrl(250, 150, 'nature'),
+            'answer1' => '24000 m',
+            'answer1_image' => $faker->imageUrl(500, 300, 'food'),
+            'answer2' => '200000 m',
+            'answer2_image' => $faker->imageUrl(250, 150, 'food'),
+            'answer3' => '25000 m',
+            'answer3_image' => $faker->imageUrl(250, 150, 'people'),
+            'user_id' => 2,
+            'correct_answer' => 2
+        ]);
     }
 }

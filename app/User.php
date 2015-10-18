@@ -50,7 +50,7 @@ class User extends Model implements AuthenticatableContract,
     }
 
     public function levels() {
-        return $this->hasMany('App\Level');
+        return $this->hasMany('App\Level');                // owns many levels
     }
 
     public function tracks() {

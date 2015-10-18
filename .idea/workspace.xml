@@ -31,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Question.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Question.php">
+      <file leaf-file-name="QuestionSeeder.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/seeds/QuestionSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8567294">
-              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3342981">
+              <caret line="171" column="26" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -90,21 +90,21 @@
         <option value="$PROJECT_DIR$/app/Track.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_10_17_114323_create_test_question_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/QuestionTestSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/QuestionSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/UsersSeeder.php" />
         <option value="$PROJECT_DIR$/app/Level.php" />
         <option value="$PROJECT_DIR$/database/seeds/SkillSeeder.php" />
-        <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_10_17_072022_create_test_table.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Test.php" />
-        <option value="$PROJECT_DIR$/app/Question.php" />
         <option value="$PROJECT_DIR$/database/seeds/TestSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/QuizController.php" />
         <option value="$PROJECT_DIR$/public/js/quiz.js" />
         <option value="$PROJECT_DIR$/public/css/quiz.css" />
         <option value="$PROJECT_DIR$/public/css/learn.css" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/app/Question.php" />
+        <option value="$PROJECT_DIR$/database/seeds/QuestionSeeder.php" />
       </list>
     </option>
   </component>
@@ -817,37 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/QuestionSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7134588">
-          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
-          <folding>
-            <marker date="1445089241013" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder=" Run the database seeds. ..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445089241013" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/StatusSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1051,32 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.90448624">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding>
-            <marker date="1445124266328" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder=" The database table used by the model. ..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder=" The attributes that are mass assignable. ..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder=" The attributes excluded from the model's JSON form. ..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1445124266328" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8089725">
@@ -1263,6 +1206,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8567294">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding>
+            <marker date="1445205955411" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1445205955411" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/QuestionSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3342981">
+          <caret line="171" column="26" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
           <folding />
         </state>
       </provider>
