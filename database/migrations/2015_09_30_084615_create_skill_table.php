@@ -14,11 +14,11 @@ class CreateSkillTable extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('skill');
-            $table->string('short_description');
-            $table->string('description');
             $table->integer('track_id')->unsigned()->default(1);
             $table->foreign('track_id')->references('id')->on('tracks');
+            $table->integer('skill');
+            $table->string('short_description');
+            $table->string('description');
             $table->integer('level_id')->unsigned()->default(1);
             $table->foreign('level_id')->references('id')->on('levels');
             $table->integer('user_id')->unsigned()->default(1);

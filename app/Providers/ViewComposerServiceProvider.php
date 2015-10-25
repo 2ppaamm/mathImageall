@@ -28,7 +28,7 @@ class ViewComposerServiceProvider extends ServiceProvider
             $view->with(['tracks'=> Track::lists('track','id'),
                 'levels' => Level ::lists('description', 'id'),
                 'difficulties' => Difficulty::lists('difficulty', 'id'),
-                'skills'=>Skill::lists('skill','id'),
+                'skills'=>Skill::lists('short_description','id'),
                 'user' => Auth::user()
             ]);
         });

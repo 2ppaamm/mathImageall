@@ -16,7 +16,6 @@ class QuestionSeeder extends Seeder
         $faker = Faker::create();
         for ($i =0; $i<100; $i++) {
             Question::create ([
-                'id' => $faker->uuid,
                 'skill_id'=>$faker->numberBetween(1,53),
                 'difficulty_id' =>$faker->numberBetween(1,3),
                 'question' => $faker->sentence(2),
@@ -34,7 +33,6 @@ class QuestionSeeder extends Seeder
             ]);
         }
             Question::create ([
-            'id' => $faker->uuid,
             'skill_id'=>2,
             'difficulty_id' =>1,
             'question' => 'x + 10 = 5. What is x?',
@@ -51,7 +49,6 @@ class QuestionSeeder extends Seeder
             'correct_answer' => 2
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'skill_id'=>2,
             'difficulty_id' =>2,
             'question' => 'y + 10 = 5. What is y?',
@@ -68,7 +65,6 @@ class QuestionSeeder extends Seeder
             'correct_answer' => 3
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'skill_id'=>3,
             'difficulty_id' =>3,
             'question' => 'z + 10 = 5. What is z?',
@@ -85,7 +81,6 @@ class QuestionSeeder extends Seeder
             'correct_answer' => 0
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'difficulty_id' =>1,
             'question' => 'The base and height of a triangle is 9cm and 4 cm respectively. What is the area?',
             'image_question' => $faker->imageUrl(400, 300, 'cats'),
@@ -101,7 +96,6 @@ class QuestionSeeder extends Seeder
             'correct_answer' => 2
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'difficulty_id' =>2,
             'question' => 'The base and height of a triangle is 9cm and 8 cm respectively. What is the area?',
             'image_question' => $faker->imageUrl(400, 300, 'cats'),
@@ -117,7 +111,6 @@ class QuestionSeeder extends Seeder
             'correct_answer' => 1
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'skill_id'=>3,
             'difficulty_id' =>3,
             'question' => 'The base and height of a triangle is 14 cm and 4 cm respectively. What is the area?',
@@ -134,7 +127,6 @@ class QuestionSeeder extends Seeder
             'correct_answer' => 0
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'skill_id'=>1,
             'difficulty_id' =>1,
             'question' => 'How many meters is 2 km?',
@@ -151,7 +143,6 @@ class QuestionSeeder extends Seeder
             'correct_answer' => 2
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'skill_id'=>2,
             'difficulty_id' =>2,
             'question' => 'How many meters is 4 km?',
@@ -168,7 +159,6 @@ class QuestionSeeder extends Seeder
             'correct_answer' => 3
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'skill_id'=>1,
             'difficulty_id' =>3,
             'question' => 'How many meters is 200 km?',
@@ -185,7 +175,6 @@ class QuestionSeeder extends Seeder
             'correct_answer' => 2
         ]);
         Question::create ([
-            'id' => $faker->uuid,
             'skill_id'=>8,
             'difficulty_id' =>3,
             'question' => 'How many meters is 200 km?',

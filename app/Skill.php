@@ -42,4 +42,12 @@ class Skill extends Model
         }
     }
 
+    public function scopeMaxskill($query,$track){
+        $query->whereTrackId($track)->orderBy('skill','desc')->first();
+    }
+
+    public function scopeNextskill($query,$track,$skill){
+        $query->whereTrackId($track)->where('skill','>',$skill)->orderBy('skill','asc')->first();
+    }
+
 }

@@ -50,5 +50,45 @@ Route::get('/quiz', function(){
 Route::post('/quiz/{id}', 'QuizController@update');
 
 Route::get('/quizdata', 'QuizController@index');
+
+// load database
+Route::get('/loadtracks', function(){
+   Excel::selectSheets('tracks')->load('public\questions.xlsx', function($reader){
+      $tracks=$reader->all();
+      foreach ($tracks as $track){
+         \App\Track::create($track->toArray());
+      }
+   });
+});
+
+Route::get('/loadlevels', function(){
+   Excel::selectSheets('levels')->load('public\questions.xlsx', function($reader){
+      $levels=$reader->all();
+      foreach ($levels as $level){
+         \App\Level::create($level->toArray());
+      }
+   });
+});
+
+Route::get('/loadskills', function(){
+   Excel::selectSheets('skills')->load('public\questions.xlsx', function($reader){
+      $skills=$reader->all();
+      foreach ($skills as $skill){
+         \App\Skill::create($skill->toArray());
+      }
+   });
+});
+
+Route::get('/loadquestions', function(){
+   Excel::selectSheets('questions')->load('public\questions.xlsx', function($reader){
+      $questions=$reader->all();
+      foreach ($questions as $question){
+         \App\Question::create($question->toArray());
+      }
+   });
+});
+
+
 // learn data
 Route::get('/learndata', 'LearnController@index');
+

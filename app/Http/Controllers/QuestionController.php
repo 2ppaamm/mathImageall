@@ -28,7 +28,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions=Question::latest()->with('track')->with('level')->with('skill')->with('difficulty')->with('status')->with('user')->get();
+        $questions=Question::latest()->with('skill')->with('difficulty')->with('status')->with('user')->get();
         return view('questions.index', compact('questions'));
     }
 
@@ -51,8 +51,6 @@ class QuestionController extends Controller
     public function store(QuestionRequest $request, ImageController $imageController)
     {
         $question = new Question($request->all());
-        $uuid = Uuid::generate(4);
-        $question['id'] = $uuid;
         $question['source']= $request->source != null ? $request->source : Auth::user()->name;
 
         $question['image_question'] = $request->image_question!=null ?
@@ -65,7 +63,7 @@ class QuestionController extends Controller
         }
         Auth::user()->questions()->save($question);
         flash('Question created.This is how your question will look like:');
-        return redirect('questions/'.$uuid);
+        return redirect('questions/'.$question->id);
     }
 
     /**

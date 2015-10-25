@@ -22,8 +22,8 @@ class CreateLevelTable extends Migration
             $table->string('image')->nullable();
             $table->integer('status_id')->unsigned()->default(1);
             $table->foreign('status_id')->references('id')->on('statuses');
-            $table->integer('lowest_maxile_level')->default(0);
-            $table->integer('highest_maxile_level')->default(0);
+            $table->integer('starting_maxile_level')->default(0);
+            $table->integer('ending_maxile_level')->default(0);
             $table->timestamps();
         });
     }

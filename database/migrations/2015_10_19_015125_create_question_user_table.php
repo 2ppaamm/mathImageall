@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UserLogTable extends Migration
+class CreateQuestionUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class UserLogTable extends Migration
     public function up()
     {
         Schema::create('question_user', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('question_id');
-            $table->foreign('question_id')->references('id')->on('questions');
+            $table->integer('question_id')->unsigned();
+            $table->foreign('question_id')->references('id')->on('questions')->ondelete('cascade');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->date('date_attempted');
-            $table->boolean('is_correct');
+            $table->foreign('user_id')->references('id')->on('tests')->ondelete('cascade');
+            $table->boolean('correct');
             $table->timestamps();
         });
     }

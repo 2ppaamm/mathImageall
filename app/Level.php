@@ -16,7 +16,11 @@ class Level extends Model
     }
 
     public function tracks(){
-        return $this->belongsToMany('App\Track');
+        return $this->belongsToMany('App\Track')->withTimestamps();
+    }
+
+    public function questions(){
+        return $this->hasManyThrough('App\Question','App\Skill');
     }
 
     public function difficulties(){
@@ -25,6 +29,10 @@ class Level extends Model
 
     public function skills(){
         return $this->hasMany('App\Skill');
+    }
+
+    public function status() {
+        return $this->belongsTo('App\Status');
     }
 
     // scopes
@@ -41,8 +49,8 @@ class Level extends Model
             }
         }
     }
-    public function status() {
-        return $this->belongsTo('App\Status');
+    public function scopeMaxlevel($query,$track){
+        $query->$track->levels()->orderBy('level','desc')->first();
     }
 
 }

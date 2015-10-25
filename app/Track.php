@@ -18,7 +18,7 @@ class Track extends Model
     }
 
     public function levels(){
-        return $this->hasMany('App\Level');
+        return $this->belongsToMany('App\Level')->withTimestamps();
     }
 
     public function status() {
@@ -30,9 +30,12 @@ class Track extends Model
     }
 
     public function questions(){
-        return $this->hasMany('App\Question');
+        return $this->hasManyThrough('App\Question','App\Skill');
     }
 
+    public function testers(){
+        return $this->belongsToMany('App\User')->withTimestamps()->withPivot('difficulty_id','skill_id','level_id','maxile');
+    }
     // scope: to use ->current()
     public function scopePublic($query){
         if (Auth::check()){
@@ -45,5 +48,8 @@ class Track extends Model
                     -> orWhere('user_id', '=', $current_user->id)->latest();
             }
         }
+    }
+    public function scopeMaxlevel($query,$track,$level){
+        $query->find($track)->levels()->where('level','>',$level)->orderBy('level','desc')->first();
     }
 }

@@ -13,13 +13,17 @@ class UsersTracksTable extends Migration
     public function up()
     {
         Schema::create('track_user', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('track_id')->unsigned();
             $table->foreign('track_id')->references('id')->on('tracks');
-            $table->integer('current_level');
-            $table->time('date_attained_current');
             $table->integer('user_id')->unsigned()->default(1);
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('difficulty_id')->unsigned();
+            $table->foreign('difficulty_id')->references('id')->on('difficulties');
+            $table->integer('skill_id')->unsigned();
+            $table->foreign('skill_id')->references('id')->on('skills');
+            $table->integer('level_id')->unsigned();
+            $table->foreign('level_id')->references('id')->on('levels');
+            $table->time('maxile');
             $table->timestamps();
         });
     }

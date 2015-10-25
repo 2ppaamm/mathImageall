@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
             $this->call(UsersSeeder::class);
             $this->call(StatusSeeder::class);
-            $this->call(TracksSeeder::class);
-            $this->call(LevelsSeeder::class);
+//            $this->call(LevelsSeeder::class);
+   //         $this->call(TracksSeeder::class);
             $this->call(DifficultySeeder::class);
-            $this->call(SkillSeeder::class);
-            $this->call(QuestionSeeder::class);
-            $this->call(TestSeeder::class);
+  //          $this->call(SkillSeeder::class);
+    //        $this->call(QuestionSeeder::class);
+      //      $this->call(TestSeeder::class);
         Model::reguard();
     }
 }

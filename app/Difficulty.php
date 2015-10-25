@@ -10,6 +10,7 @@ class Difficulty extends Model
     protected $hidden = ['user_id'];
     protected $fillable = ['difficulty', 'description', 'short_description',
         'image', 'status'];
+
     //relationship
     public function user() {                        //who created this difficulty level
         return $this->belongsTo('App\User');

@@ -13,7 +13,7 @@ class CreateTestQuestionTable extends Migration
     public function up()
     {
         Schema::create('question_test', function (Blueprint $table) {
-            $table->string('question_id');
+            $table->integer('question_id')->unsigned();
             $table->foreign('question_id')->references('id')->on('questions')->ondelete('cascade');
             $table->integer('test_id')->unsigned();
             $table->foreign('test_id')->references('id')->on('tests')->ondelete('cascade');

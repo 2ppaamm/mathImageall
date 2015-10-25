@@ -150,7 +150,7 @@ return [
         App\Providers\ViewComposerServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-
+        Maatwebsite\Excel\ExcelServiceProvider::class
     ],
 
     /*
@@ -204,7 +204,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Flash' => Laracasts\Flash\FlashServiceProvider::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class
     ],
 
 ];

@@ -41,7 +41,7 @@ class User extends Model implements AuthenticatableContract,
     protected $dates = ['date_of_birth', 'last_test_date', 'next_test_date'];
 
     // relationships
-    public function questions() {
+    public function questions() {                        // question setter
         return $this->hasMany('App\Question');
     }
 
@@ -58,19 +58,12 @@ class User extends Model implements AuthenticatableContract,
     }
 
     public function track_results() {                       //result for each track
-        return $this->hasMany('App\User_Track');
-    }
-
-    public function user_questions() {                       //result for each question attempted
-        return $this->hasMany('App\User_Question');
+        return $this->belongsToMany('App\User_Track')->withTimestamps()
+            ->withPivot('difficulty_id','skill_id','level_id','maxile');
     }
 
     public function user_reports() {                       //reports generated user
         return $this->hasMany('App\User_Report');
-    }
-
-    public function images(){
-        return $this->hasMany('App\Image');
     }
 
     public function reports(){
@@ -83,6 +76,10 @@ class User extends Model implements AuthenticatableContract,
 
     public function tests(){
         return $this->hasMany('App\Test');
+    }
+
+    public function tested_questions(){                  // questions answered
+        return $this->belongsToMany('App\Question')->withTimestamps()->withPivot('correct');
     }
 
     // scope: to use ->current()

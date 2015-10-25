@@ -13,7 +13,7 @@ class CreateQuestionTable extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->string('id',36)->primary();
+            $table->increments('id');
             $table->integer('skill_id')->unsigned()->nullable();
             $table->foreign('skill_id')->references('id')->on('skills')->onDelete('set null');
             $table->integer('difficulty_id')->unsigned()->nullable();

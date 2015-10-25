@@ -15,7 +15,8 @@
         $scope.selectAnswer = function(qIndex, aIndex){
             var questionState = $scope.myQuestions[qIndex].questionState;
             // send answer, questionid and userid to server
-            $http.post('/quiz/'+$scope.myQuestions.test_id,{'question':qIndex,'answer':aIndex});
+            $http.post('/quiz/'+$scope.myQuestions[qIndex].test_id,
+                {'question':$scope.myQuestions[qIndex].question_id,'answer':aIndex});
             $scope.myQuestions[qIndex].questionState = 'answered';
         }
         $scope.isSelected = function(qIndex,aIndex){
