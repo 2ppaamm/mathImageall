@@ -1,8 +1,8 @@
 <tr>
     <td>
     <div class = "thumbnail" style="width: 15em; height: 12em;">
-        @if ($question->image_question != null)
-            <img src={{ $question->image_question }} alt={{$question->question}}\>
+        @if ($question->question_image != null)
+            <img src={{ $question->question_image }} alt={{$question->question}}\>
         @else
             <img src="/js/placeholder-image.png" alt={{$question->question}}\>
         @endif

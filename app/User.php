@@ -58,7 +58,7 @@ class User extends Model implements AuthenticatableContract,
     }
 
     public function track_results() {                       //result for each track
-        return $this->belongsToMany('App\User_Track')->withTimestamps()
+        return $this->belongsToMany('App\Track')->withTimestamps()
             ->withPivot('difficulty_id','skill_id','level_id','maxile');
     }
 
@@ -79,11 +79,18 @@ class User extends Model implements AuthenticatableContract,
     }
 
     public function tested_questions(){                  // questions answered
-        return $this->belongsToMany('App\Question')->withTimestamps()->withPivot('correct');
+        return $this->belongsToMany('App\Question')->orderBy('pivot_created_at','desc')->select('question_user.question_id as question_id')
+            ->withTimestamps()->withPivot('correct');
+    }
+
+    public function numberCorrect(){                  // questions answered
+        return $this->belongsToMany('App\Question')->orderBy('pivot_created_at','desc')
+            ->selectRaw('sum(question_user.correct) as total_correct')
+            ->withTimestamps()->withPivot('correct')->distinct();
     }
 
     // scope: to use ->current()
-    public function scopeCurrent($query){
+    public function scopeUser($query){
         $query->where('id','=',Auth::user()->id);
     }
 }

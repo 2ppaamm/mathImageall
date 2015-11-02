@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
             $this->call(UsersSeeder::class);
             $this->call(StatusSeeder::class);
-//            $this->call(LevelsSeeder::class);
+            $this->call(TypeSeeder::class);
+    //            $this->call(LevelsSeeder::class);
    //         $this->call(TracksSeeder::class);
             $this->call(DifficultySeeder::class);
   //          $this->call(SkillSeeder::class);

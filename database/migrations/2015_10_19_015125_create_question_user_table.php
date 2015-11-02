@@ -16,8 +16,8 @@ class CreateQuestionUserTable extends Migration
             $table->integer('question_id')->unsigned();
             $table->foreign('question_id')->references('id')->on('questions')->ondelete('cascade');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('tests')->ondelete('cascade');
-            $table->boolean('correct');
+            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
+            $table->boolean('correct')->nullable();
             $table->timestamps();
         });
     }

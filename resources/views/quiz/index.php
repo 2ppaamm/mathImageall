@@ -12,7 +12,8 @@
     <div class="progress">
         <div class="
 				{{($index === activeQuestion) ? 'on':'off'}}
-				{{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered'}} 
+				{{ (myQuestion.answered) ? 'answered': 'unanswered'}}
+				{{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered'}}
 				{{ (myQuestion.correctness === 'correct') ? 'correct' : 'incorrect'}}"
              ng-repeat="myQuestion in myQuestions"></div>
     </div>
@@ -24,7 +25,8 @@
     <div class="question
 				{{ $index === activeQuestion ? 'active':'inactive'}} {{ myQuestion.questionState === 'answered' ? 'answered':'unanswered'}}" ng-repeat="myQuestion in myQuestions">
         <p class="txt">
-            {{ myQuestion.question }}
+            {{ myQuestion.question }}</br>
+            <img src="{{ myQuestion.question_image}}" class="image" alt=""/>
         </p>
         <p class="ans"
            ng-class="{

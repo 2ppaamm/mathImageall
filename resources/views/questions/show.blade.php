@@ -5,8 +5,8 @@
     @endif
     <h1>{{ $question->question }}</h1>
     <div class="col-md-12">
-        @if ($question->image_question != null)
-            <img src="{{ $question->image_question }}" alt="{{ $question->question }}">
+        @if ($question->question_image != null)
+            <img src="{{ $question->question_image }}" alt="{{ $question->question }}">
         @endif
     </div>
     <hr>

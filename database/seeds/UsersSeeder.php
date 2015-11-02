@@ -29,7 +29,7 @@ class UsersSeeder extends Seeder
             'email'=> 'pamelaliusm@gmail.com',
             'password' => Hash::make('123456'),
             'is_admin' => TRUE,
-            'date_of_birth' => '2004-02-20',
+            'date_of_birth' => '2008-02-20',
             'last_test_date' => $faker->dateTimeThisYear,
             'next_test_date' => $faker->dateTimeThisYear,
             'maxile_level' => 200

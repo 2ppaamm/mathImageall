@@ -27,7 +27,7 @@ class QuestionRequest extends Request
             'skill_id'=> 'required',
             'difficulty_id' =>'required',
             'question' => 'required',//|unique:questions,question',
-            'image_question' => 'image|max:1000',
+            'question_image' => 'image|max:1000',
             'answer0_image' => 'image|max:1000|required_without:answer0',
             'answer1_image' => 'image|max:1000|required_without:answer1',
             'answer2_image' => 'image|max:1000|required_without:answer2',

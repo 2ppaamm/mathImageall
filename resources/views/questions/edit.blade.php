@@ -5,7 +5,7 @@
 {!! Form::model($question, ['method'=>'PATCH', 'url'=>'questions/'.$question->id,'files'=>true]) !!}
     @include('questions._questionform', ['submitButtonText'=>'Save Changes',
         'imageButtonText' => 'Update Image',
-        'image_link'=>$question->image_question, 'answer0_link'=>$question->answer0_image
+        'image_link'=>$question->question_image, 'answer0_link'=>$question->answer0_image
         , 'answer1_link'=>$question->answer1_image
         , 'answer2_link'=>$question->answer2_image
         , 'answer3_link'=>$question->answer3_image

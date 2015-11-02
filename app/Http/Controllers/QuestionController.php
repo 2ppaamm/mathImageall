@@ -53,8 +53,8 @@ class QuestionController extends Controller
         $question = new Question($request->all());
         $question['source']= $request->source != null ? $request->source : Auth::user()->name;
 
-        $question['image_question'] = $request->image_question!=null ?
-            $imageController->store(Input::file('image_question'), 'image_question', $question['id'], null)
+        $question['question_image'] = $request->question_image!=null ?
+            $imageController->store(Input::file('question_image'), 'question_image', $question['id'], null)
             :null;
         for ($i = 0; $i<4; $i++) {
             $image_field = 'answer'.$i.'_image';
@@ -112,7 +112,7 @@ class QuestionController extends Controller
         }
         else {
             $question->fill(Input::all());
-            $question['image_question'] = $imageController->store(Input::file('image_question'), 'image_question', $question['id'], $question['image_question']);
+            $question['question_image'] = $imageController->store(Input::file('question_image'), 'image_question', $question['id'], $question['image_question']);
             for ($i = 0; $i<4; $i++) {
                 $image_field = 'answer'.$i.'_image';
                 $question[$image_field] = $imageController->store(Input::file($image_field), 'answer'.$i.'_image', $question['id'], $question[$image_field]);
@@ -132,7 +132,7 @@ class QuestionController extends Controller
     public function destroy(Question $question)
     {
         // delete question image
-        File::exists(public_path($question->image_question)) ? File::delete(public_path($question->image_question)):null;
+        File::exists(public_path($question->question_image)) ? File::delete(public_path($question->image_question)):null;
         File::exists(public_path($question->answer1_image)) ? File::delete(public_path($question->answer1_image)):null;
         File::exists(public_path($question->answer2_image)) ? File::delete(public_path($question->answer2_image)):null;
         File::exists(public_path($question->answer3_image)) ? File::delete(public_path($question->answer3_image)):null;

@@ -49,6 +49,11 @@ class Track extends Model
             }
         }
     }
+
+    public function scopeNexttrack($query, $user, $level){
+        $user->track_results()->where('maxile','<', $level->ending_maxile_level)->first()->id;
+    }
+
     public function scopeMaxlevel($query,$track,$level){
         $query->find($track)->levels()->where('level','>',$level)->orderBy('level','desc')->first();
     }

@@ -12,7 +12,7 @@ class Test extends Model
 
     //relationship
     public function questions(){
-        return $this->belongsToMany('App\Question')->withTimestamps();
+        return $this->belongsToMany('App\Question')->withTimestamps()->withPivot('answered');
     }
     // scope generate a random initial quiz for age
     public function scopeCurrent($query){

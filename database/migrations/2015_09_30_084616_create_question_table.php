@@ -21,7 +21,7 @@ class CreateQuestionTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('question');
-            $table->string('image_question')->nullable();
+            $table->string('question_image')->nullable();
             $table->string('answer0')->nullable();
             $table->string('answer0_image')->nullable();
             $table->string('answer1')->nullable();
@@ -35,6 +35,8 @@ class CreateQuestionTable extends Migration
             $table->foreign('status_id')->references('id')->on('statuses');
             $table->string('source')->nullable();
             $table->string('solution')->nullable();
+            $table->integer('type_id')->unsigned();
+            $table->foreign('type_id')->references('id')->on('types');
             $table->timestamps();
         });
     }

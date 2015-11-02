@@ -21,7 +21,7 @@
     ]) !!}
 </div>
 <div class="form-group col-md-4 thumbnail">
-    @include('layouts._imageForm', ['image_name'=>'image_question', 'image_link'=>$image_link])
+    @include('layouts._imageForm', ['image_name'=>'question_image', 'image_link'=>$image_link])
 </div>
 <!--  form input for answers -->
 @for ($i = 0; $i < 4; $i++)

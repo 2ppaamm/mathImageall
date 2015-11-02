@@ -44,7 +44,6 @@ angular.module('mathQuiz', ['ionic'])
                     $scope.myQuestions[qIndex].correctness = 'incorrect';
                 }
                 $scope.myQuestions[qIndex].questionState = 'answered';
-
             }
             $scope.percentage = (($scope.score / $scope.totalQuestions)*100).toFixed(1);
         }
