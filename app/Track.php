@@ -17,6 +17,17 @@ class Track extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function users(){
+        return $this->belongsToMany('App\User')->withTimestamps()->withPivot('maxile');
+    }
+
+    public function maxile(){
+        return $this->belongsToMany('App\User')->withTimestamps()->withPivot('maxile')
+            ->where('track_user.user_id','=', Auth::user()->id)->select('tracks.track')
+            ->selectRaw('max(track_user.maxile) as max')->groupBy('tracks.track')
+            ;
+    }
+
     public function levels(){
         return $this->belongsToMany('App\Level')->withTimestamps();
     }
@@ -48,10 +59,6 @@ class Track extends Model
                     -> orWhere('user_id', '=', $current_user->id)->latest();
             }
         }
-    }
-
-    public function scopeNexttrack($query, $user, $level){
-        $user->track_results()->where('maxile','<', $level->ending_maxile_level)->first()->id;
     }
 
     public function scopeMaxlevel($query,$track,$level){

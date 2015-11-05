@@ -54,7 +54,7 @@ body { background-color: #fff; padding: 20px; }
 /* Questions */
 #mathQuiz .question { width: 550px; position: absolute; top:225px; left: 660px;}
 #mathQuiz .question .txt { width:100%; font-size: 1.6em; display: inline-block; margin-bottom:20px }
-#mathQuiz .question .image { padding:20px 0;height:150px }
+#mathQuiz .question .image { padding:10px 0;height:150px }
 #mathQuiz .question .txt:after {
     content: "";
     display: block;

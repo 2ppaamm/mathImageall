@@ -23,7 +23,7 @@ class UsersTracksTable extends Migration
             $table->foreign('skill_id')->references('id')->on('skills');
             $table->integer('level_id')->unsigned();
             $table->foreign('level_id')->references('id')->on('levels');
-            $table->integer('maxile');
+            $table->float('maxile', 6, 2);
             $table->timestamps();
         });
     }

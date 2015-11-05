@@ -78,13 +78,11 @@ class Question extends Model
     }
 
     public function scopeDiagnostic($query){
-        $query->quiz()->whereDifficultyId(1)
+        $query->quiz()->whereDifficultyId(Difficulty::min('difficulty'))
             ->wherein('skill_id',Skill::select('id')
                 ->whereLevelId(Level::whereAge(Auth::user()->date_of_birth->age)->select('id')->first()->id)
-                ->groupBy('track_id')
                 ->get())
-            ->groupBy('skill_id')
-            ->get();
+            ->take(2);
     }
 
     public function scopeSimilar($query, $difficulty,$skill){
@@ -99,7 +97,9 @@ class Question extends Model
     }
 
     public function scopeEasier($query,$difficulty,$skill){
-        $query->whereDifficultyId(Difficulty::where('difficulty','<',$difficulty)->orderBy('difficulty','desc')->first()->id)->whereSkillId($skill)->orderByRaw("RAND()");
+        $query->whereDifficultyId(Difficulty::where('difficulty','<',$difficulty)
+            ->orderBy('difficulty','desc')->first()->id)->whereSkillId($skill)
+            ->orderByRaw("RAND()");
     }
 
     public function scopeUpskill($query,$skill, $track, $level){
@@ -111,18 +111,23 @@ class Question extends Model
         }
     }
 
-    public function scopeDownskill($query,$skill,$track){
-        $query->whereSkillId(Skill::where('skill','<',$skill)->whereTrackId($track)->orderBy('skill','desc')->first()->id)
-            ->orderByRaw("RAND()");
+    public function scopeDownskill($query,$skill,$track,$level){
+        if ($next_skill = count(Skill::whereTrackId($track)->whereLevelId($level)
+                ->orderBy('skill','desc')->where('skill','<',$skill->skill)->first()->id) > 0) {
+            Question::whereSkillId($next_skill)
+                ->whereDifficultyId(Difficulty::max('difficulty'))
+                ->orderByRaw("RAND()")->first();
+        }
     }
 
-    public function scopeUptrack($query, $track){
-        $query->question_user()->whereSkillId(Skill::whereTrackId($track))->latest();
-    }
-
-    public function scopeUplevel($query,$track,$level){
-        $query->whereDifficultyId(Difficulty::orderBy('difficulty','asc')->first()->id)
-        ->whereSkillId(Skill::whereTrackId($track)->where('level_id','>',$level)->orderBy('level_id','asc')->orderByRaw("RAND()")->first()->id);
+    public function scopeUplevel($query, $level){
+        $query->quiz()->whereDifficultyId(Difficulty::select('id')->orderBy('difficulty','asc')->first()->id)
+            ->wherein('skill_id',Skill::select('id')
+                ->whereLevelId(Level::where('level','>', $level)->orderBy('level','asc')->select('id')->first()->id)
+                ->groupBy('track_id')
+                ->get())
+            ->groupBy('skill_id')
+            ->get();
     }
 
     public function scopeDownlevel($query,$track,$level){

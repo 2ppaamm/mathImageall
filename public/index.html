@@ -77,7 +77,8 @@
     <!--results -->
         <div class="results {{(totalQuestions === activeQuestion) ? 'active' : 'inactive'}} padding">
           <h3>Results</h3>
-          <p>You scored {{percentage}}% by correctly answering {{score}} of the total {{totalQuestions}} questions.</p>
+          <p>Hello? You scored {{percentage}}% by correctly answering {{score}} of the total {{totalQuestions}} questions.</p>
+          <p ng-repeat="myMessage in myMessages">{{myMessage.msg}}</p>
           <p>Use the links below to challenge your friends.</p>
           <a href="http://twitter.com/share?text=I scored a {{percentage}}%25 on this Math quiz. Can you beat me at #MathQuiz url='www.all-gifted.com'" class="tweet icon  icon-right ion-social-twitter button button-positive">Tweet</a>
           <button class="facebook icon icon-left ion-social-facebook button button-positive">Facebook</button>        

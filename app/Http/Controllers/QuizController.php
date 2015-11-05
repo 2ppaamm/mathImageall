@@ -14,6 +14,7 @@ use App\Level;
 use App\Skill;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
+use App\Track;
 
 class QuizController extends Controller
 {
@@ -112,17 +113,20 @@ class QuizController extends Controller
         $question = Question::with('skill')->with('difficulty')->with('skill.level')->with('skill.track')->find($request->question_id);
         // log
         $question->tests()->updateExistingPivot($request->test_id, ['answered' => TRUE], false);
+        $user->tested_questions()->attach($request->question_id, ['correct' => $correct= $question->correct_answer == $request->answer]);
 
+        // initialize
         $error_limit = Config::get('mathtest.error_test');
         $success_limit = Config::get('mathtest.success_test');
         $difficulty = $question->difficulty_id;
         $skill = $question->skill;
         $level = $skill->level;
         $track = $skill->track;
-        $test = $request->test_id;
+        $test = Test::find($request->test_id);
+        $maxile=0;
 
         // track if user has done questions of the same skill and difficulty
-        $test_record = Test::find($test)->questions()
+        $test_record = $test->questions()
             ->selectRaw('question_test.question_id as id')
             ->lists('id');
 
@@ -132,72 +136,66 @@ class QuizController extends Controller
             ->take(max($error_limit, $success_limit))
             ->first()->total_correct;
 
+//        dd($total_correct);
+ //       dd($question->correct_answer == $request->answer);
         $new_question = new Question;
-
-        if ($correctness = $question->correct_answer == $request->answer) {              //if answer is correct
-//            dd($correctness);
-//                dd($total_correct.'success_limit->'.$success_limit);
+//        return $track->users()->get();
+        if ($correct) {              //if answer is correct
+   //         dd($correct);
             if ($total_correct < $success_limit - 1) { //cleared this difficulty
                 if ($new_question = Question::similar($difficulty, $skill->id)
                     ->whereNotIn('id', $test_record)// not the questions answered
                     ->first()
                 ) {
-//                    return 'similar question?';
+//                    dd($correct);
                 }
-                // upgrade if more than success_limit
-            } elseif ($difficulty < Difficulty::max('difficulty')) {
-                $new_question = Question::harder($difficulty, $skill->id)
-                    ->whereNotIn('id', $test_record)// not the questions answered
-                    ->first();
-                //              return 'move next difficulty question found';
-            } elseif ($new_question = Question::whereNotIn('id', $test_record)// not the questions answered
-                        ->upskill($skill, $track->id, $level->id)->first()) {
-
             } else {
-                $maxile = $level->start_maxile_level + 0; // have to think of how to calculate
-                if ($new_question = Question::uptrack(Track::nexttrack($user, $level->id))) {
-                } elseif ($level < Level::max('level')) {  //cleared level, uplevel
+                $user->track_results()->attach($question->track, [
+                    'difficulty_id'=>$question->difficulty_id,
+                    'skill_id'=>$question->skill_id, 'level_id'=>$question->skill->level->id,
+                    'track_id'=>$question->skill->track->id,
+                    'maxile'=>intval($question->skill->level->starting_maxile_level + 100*($difficulty/Difficulty::max('difficulty'))
+                        *($skill->skill/Skill::whereLevelId($level->id)->max('skill')))]);
+
+                if ($difficulty < Difficulty::max('difficulty')) {
+                    $new_question = Question::harder($difficulty, $skill->id)
+                        ->whereNotIn('id', $test_record)// not the questions answered
+                        ->first();
+                } elseif ($skill->skill < Skill::whereTrackId($track->id)->whereLevelId($level->id)->max('skill')){
                     $new_question = Question::whereNotIn('id', $test_record)// not the questions answered
-                        ->uplevel($track->id, $level->id)->first();
-                    //return 'move to next level found';
+                        ->upskill($skill, $track->id, $level->id)->first();
+                } elseif ($level->level < Level::max('level')){
+                    $new_question = Question::whereNotIn('id', $test_record)
+                        ->whereSkillId(Skill::orderBy('skill','asc')->first()->id)
+                        ->first();
                 } else {
-                    return 'You have reached the maximum level and difficulty for all skills in this track.';
+                    return ['msg'=>'You have reached the maximum level and difficulty for all skills in this track.'];
                 }
             }
         // if answer is wrong
-        } elseif ($test_record->count() > $error_limit - 2) {
-                if ($test_record->sum('pivot_correct') > $error_limit - 2) {                     //cleared this difficulty
-                    if ($new_question = Question::easier($difficulty, $skill->id)->first()) {
-                    } elseif ($new_question = Question::downSkill($skill->id, $track->id)->first()) {  //cleared skill, upskill
-                    } elseif ($new_question = Question::downlevel($track->id, $level->id)->first()) {  //cleared level, uplevel
-
-                    } else {
-                        //find a new track
-                    }
-                }
-            }
+        } elseif ($difficulty > Difficulty::min('difficulty')) {
+            $new_question = Question::easier($difficulty, $skill->id)
+                    ->whereNotIn('id', $test_record) // do not repeat questions in test
+                    ->first();
+        } elseif ($skill->skill > Skill::whereTrackId($track->id)->whereLevelId($level->id)->min('skill')){
+                $new_question = Question::whereNotIn('id', $test_record)// not the questions answered
+                ->downskill($skill, $track->id, $level->id)->first();
+        } elseif ($level->level > Level::min('level')){
+                $new_question = Question::whereNotIn('id', $test_record)
+                    ->whereSkillId(Skill::orderBy('skill','desc')->first()->id)
+                    ->first();
+        } else {
+                return ['msg'=>'You have reached the minimum level and difficulty for all skills in this track.'];
+        }
 //        dd($new_question);
-        $user->tested_questions()->attach($request->question_id, ['correct' => $correctness]);
-
-        if ($new_question != null) {
+        if (isset($new_question) and $new_question->id != null) {
             $new_question->tests()->attach($request->test_id, ['answered'=>FALSE]);
             return $this->formatQuiz($new_question, $request->test_id);
         } else {
-            $user->track_results()->attach($question->track, ['difficulty_id'=>$question->difficulty_id,
-                'skill_id'=>$question->skill_id, 'level_id'=>$question->skill->level->id,
-                'track_id'=>$question->skill->track->id, 'maxile'=>$maxile = $level->starting_maxile_level + $difficulty * Difficulty::max('difficulty')/100]);
-            return 'Your maxile reached for this test is '.$maxile;
+            return ['result'=> Track::join('track_user', 'id', '=', 'track_id')
+                ->where('track_user.user_id','=', $user->id)->select('tracks.track')
+                ->selectRaw('max(track_user.maxile) as max')->groupBy('tracks.track')
+                ->get()];
         }
-    }
-
-    /**
-     * Calculates maxile.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function maxile($id)
-    {
-        //
     }
 }

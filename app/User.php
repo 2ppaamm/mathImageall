@@ -62,6 +62,14 @@ class User extends Model implements AuthenticatableContract,
             ->withPivot('difficulty_id','skill_id','level_id','maxile');
     }
 
+    public function maxile(){
+        return $this->belongsToMany('App\Track')->withTimestamps()
+            ->withPivot('difficulty_id','skill_id','level_id','maxile')
+            ->selectRaw('max(maxile) as max')->select('track_id');
+   //         ->groupBy('track_id');
+     //       ->lists('max','track_id');
+    }
+
     public function user_reports() {                       //reports generated user
         return $this->hasMany('App\User_Report');
     }
@@ -92,5 +100,9 @@ class User extends Model implements AuthenticatableContract,
     // scope: to use ->current()
     public function scopeUser($query){
         $query->where('id','=',Auth::user()->id);
+    }
+
+    public function scopeMaxile($query){
+        $query->$this->track_results()->get();
     }
 }

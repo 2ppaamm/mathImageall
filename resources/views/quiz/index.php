@@ -46,7 +46,9 @@
     </div>
     <div class="results  {{(totalQuestions === activeQuestion) ? 'active' : 'inactive'}}">
         <h3>Results</h3>
-        <p>You scored {{percentage}}% by correctly answering {{score}} of the total {{totalQuestions}} questions.</p>
+        <p>You scored {{percentage}}% by correctly answering {{score}} of the total {{totalQuestions}} questions.<br/>The break down of your results are as follows:</p>
+        <p ng-repeat="Result in myMessages.result">
+        Your result for {{Result.track}} is {{Result.max}}.</p>
         <p>Use the links below to challenge your friends.</p>
         <div class="share" ng-bind-html = "createShareLinks(percentage)"></div>
     </div>

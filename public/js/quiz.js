@@ -17,11 +17,16 @@
             // send answer, questionid and userid to server
             $http.post('/quiz/'+$scope.myQuestions[qIndex].test_id,
                 {'question_id':$scope.myQuestions[qIndex].question_id,'answer':aIndex,
-                'test_id': $scope.myQuestions[qIndex].test_id}).success(function(new_question){
+                'test_id': $scope.myQuestions[qIndex].test_id}).success(function(msg){
 
-                    if (new_question['question_id'] != null){
-                        $scope.myQuestions.push(new_question);
+                    if (msg['question_id'] != null){
+                        $scope.myQuestions.push(msg);
                         $scope.totalQuestions += 1;
+                    } else {
+                        if (msg['result'] != null){
+                            $scope.myMessages = msg;
+                            console.log($scope.myMessages['result']);
+                        }
                     }
             });
             $scope.myQuestions[qIndex].questionState = 'answered';
